@@ -1,0 +1,11 @@
+.chartDiv {
+    height: 200px;
+    width: 400px;
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}

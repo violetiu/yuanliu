@@ -1,0 +1,56 @@
+<!--Copyright (c) taoyongwen. All rights reserved.-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>prototyping hub</title>
+    <style>
+        html {
+            background: rgb(15, 14, 40);
+        }
+        
+        .gird {
+            height: 300px;
+            width: 500px;
+            background-color: aquamarine;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gird::after {
+            content: "";
+            position: absolute;
+            transform: rotate(60deg);
+            bottom: -15%;
+            right: -5%;
+            height: 25%;
+            width: 10%;
+            background: rgb(15, 14, 40);
+        }
+        
+        .gird::before {
+            content: "";
+            position: absolute;
+            transform: rotate(60deg);
+            top: -15%;
+            left: -5%;
+            height: 25%;
+            width: 10%;
+            background: rgb(15, 14, 40);
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="gird">
+
+    </div>
+
+</body>
+
+</html>

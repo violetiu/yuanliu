@@ -1,0 +1,167 @@
+.view-textarea {
+    user-select: none;
+    outline: none;
+    border: 0;
+    resize: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 100;
+    width: 2px;
+    cursor: text;
+    transition: left 0.2s, top 0.2s;
+    top: -100px;
+    border-radius: 5px;
+    display: none;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.editor:hover .view-textarea {
+    animation: hightlight 1.3s;
+    animation-iteration-count: infinite;
+}
+
+.light .view-textarea {
+    background-color: black;
+}
+
+.dark .view-textarea {
+    background-color: #fff;
+}
+
+.light .suggestion {
+    background-color: #f1f1f1;
+}
+
+.dark .suggestion {
+    background-color: #222;
+}
+
+@keyframes hightlight {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.editor-view {
+    position: absolute;
+    outline: none;
+    -webkit-text-size-adjust: 100%;
+    cursor: text;
+}
+
+.editor-view ::selection {
+    background: rgba(0, 127, 227, 0.2);
+}
+
+.view-line {
+    position: absolute;
+    width: 100%;
+    letter-spacing: 0px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.nav-num {
+    /* position: absolute; */
+    width: 100%;
+    text-align: center;
+    opacity: 0.6;
+    user-select: none;
+    color: var(--theme-color);
+}
+
+.view-line {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+.view-line[selected=true] {
+    border-top: 1px solid rgba(157, 157, 157, 0.2);
+    border-bottom: 1px solid rgba(157, 157, 157, 0.2);
+}
+
+.view-line span {
+    user-select: inherit;
+}
+
+.editor {}
+
+.editor_scrollV {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+}
+
+.editor_scrollV_thumb {
+    position: absolute;
+    width: 0px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    height: 0px;
+    cursor: default;
+}
+
+.editor:hover .editor_scrollV_thumb {
+    width: 2px;
+}
+
+.editor_scrollH {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+}
+
+.editor_scrollH_thumb {
+    position: absolute;
+    height: 0px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    width: 0px;
+    cursor: default;
+}
+
+.editor:hover .editor_scrollH_thumb {
+    height: 2px;
+}
+
+.suggestion-item:hover {
+    background: rgba(157, 157, 157, 0.2);
+}
+
+.suggestion-item-text {
+    display: none;
+    flex: 1;
+    text-align: right;
+    opacity: 0.8;
+}
+
+.suggestion-item:hover .suggestion-item-text {
+    display: block;
+}
+
+.suggestion-item[data-selected=true] {
+    background-color: var(--theme-color);
+    color: #fff;
+}
+
+.suggestion-item[data-selected=true] svg {
+    color: #fff;
+}
+
+.suggestion-item svg {
+    color: var(--theme-color);
+}

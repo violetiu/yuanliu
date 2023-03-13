@@ -1,0 +1,789 @@
+{
+    "type": "page",
+    "key": "uuid_54dda0ff4cd64e8ab765b1d9f08a1bf1",
+    "width": 1792,
+    "height": 1058,
+    "backgroundColor": "#f1f2f3",
+    "theme": "light",
+    "children": [{
+            "key": "uuid_485056c6a2ea407681b89aa6ce26396e",
+            "icon": "bi bi-layout-three-columns",
+            "label": "row_1",
+            "type": "row",
+            "style": "   display:flex;background:transparent;padding:5px;border-radius:5px;align-items: center;background-color:#fff;height:24px;min-height:24px;",
+            "drop": "component",
+            "background": 0,
+            "property": {},
+            "sort": 0,
+            "group": "layout",
+            "path": "uuid_485056c6a2ea407681b89aa6ce26396e",
+            "children": [{
+                    "key": "uuid_e975c4747267479b8c0288898674068d",
+                    "icon": "bi bi-type",
+                    "label": "label_1",
+                    "type": "label",
+                    "style": "     padding: 5px 10px 5px 10px;border:0;white-space: nowrap;border-radius:5px;font-size:12px;padding-top:5px;padding-right:2px;padding-bottom:5px;padding-left:10px;",
+                    "background": 0,
+                    "property": {
+                        "text": {
+                            "label": "文本",
+                            "type": "text",
+                            "context": "当前位置"
+                        }
+                    },
+                    "blue": {
+                        "property": {
+                            "value": {
+                                "label": "值"
+                            }
+                        }
+                    },
+                    "sort": 0,
+                    "path": "uuid_485056c6a2ea407681b89aa6ce26396e/uuid_e975c4747267479b8c0288898674068d",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_61bb3977765740d58a974316d9979b0a",
+                    "icon": "bi bi-type",
+                    "label": "当前位置",
+                    "type": "label",
+                    "style": "     padding: 5px 10px 5px 10px;border:0;white-space: nowrap;border-radius:5px;font-size:12px;padding-top:5px;padding-right:10px;padding-bottom:5px;padding-left:2px;",
+                    "background": 0,
+                    "property": {
+                        "text": {
+                            "label": "文本",
+                            "type": "text",
+                            "context": "/"
+                        }
+                    },
+                    "blue": {
+                        "property": {
+                            "value": {
+                                "label": "值"
+                            }
+                        }
+                    },
+                    "sort": 1,
+                    "path": "uuid_485056c6a2ea407681b89aa6ce26396e/uuid_61bb3977765740d58a974316d9979b0a",
+                    "flex": true
+                }
+            ]
+        },
+        {
+            "key": "uuid_04ff62b3f3ea46889c9fc3868f13819a",
+            "icon": "bi bi-layout-three-columns",
+            "label": "row_1",
+            "type": "row",
+            "style": "display:flex;background:transparent;min-height:34px;padding:5px;border-radius:5px;align-items: center;",
+            "drop": "component",
+            "background": 0,
+            "property": {},
+            "sort": 1,
+            "group": "layout",
+            "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a",
+            "children": [{
+                    "key": "uuid_8196863ab01d41c0aea9c3a58c91d26a",
+                    "icon": "bi bi-input-cursor",
+                    "label": "field_1",
+                    "type": "field",
+                    "background": 0,
+                    "property": {
+                        "label": {
+                            "label": "标签",
+                            "type": "text",
+                            "context": "名称"
+                        },
+                        "value": {
+                            "label": "值",
+                            "type": "text",
+                            "context": ""
+                        }
+                    },
+                    "styles": {
+                        "root": "display:flex;align-items:center;",
+                        "label": "white-space: nowrap;cursor: pointer;max-width:200px;font-size:13px;padding: 5px 0px 5px 10px;border-radius:5px;",
+                        "text": "cursor: pointer;font-size:13px;padding: 5px 10px 5px 5px;border:1px solid rgba(157,157,115,0.5);border-radius:5px;"
+                    },
+                    "blue": {
+                        "event": {
+                            "change": {
+                                "label": "改变"
+                            }
+                        },
+                        "property": {
+                            "value": {
+                                "label": "值"
+                            }
+                        }
+                    },
+                    "sort": 0,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_8196863ab01d41c0aea9c3a58c91d26a",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_7aa5dd0173414adf809285d2375597e0",
+                    "icon": "bi bi-input-cursor",
+                    "label": "field_2",
+                    "type": "field",
+                    "background": 0,
+                    "property": {
+                        "label": {
+                            "label": "标签",
+                            "type": "text",
+                            "context": "日期"
+                        },
+                        "value": {
+                            "label": "值",
+                            "type": "text",
+                            "context": ""
+                        }
+                    },
+                    "styles": {
+                        "root": "display:flex;align-items:center;",
+                        "label": "white-space: nowrap;cursor: pointer;max-width:200px;font-size:13px;padding: 5px 0px 5px 10px;border-radius:5px;",
+                        "text": "cursor: pointer;font-size:13px;padding: 5px 10px 5px 5px;border:1px solid rgba(157,157,115,0.5);border-radius:5px;"
+                    },
+                    "blue": {
+                        "event": {
+                            "change": {
+                                "label": "改变"
+                            }
+                        },
+                        "property": {
+                            "value": {
+                                "label": "值"
+                            }
+                        }
+                    },
+                    "sort": 1,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_7aa5dd0173414adf809285d2375597e0",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_adbd4523278d4c6a9e579a30287e332b",
+                    "icon": "bi bi-input-cursor",
+                    "label": "field_3",
+                    "type": "field",
+                    "background": 0,
+                    "property": {
+                        "label": {
+                            "label": "标签",
+                            "type": "text",
+                            "context": "类型"
+                        },
+                        "value": {
+                            "label": "值",
+                            "type": "text",
+                            "context": ""
+                        }
+                    },
+                    "styles": {
+                        "root": "display:flex;align-items:center;",
+                        "label": "white-space: nowrap;cursor: pointer;max-width:200px;font-size:13px;padding: 5px 0px 5px 10px;border-radius:5px;",
+                        "text": "cursor: pointer;font-size:13px;padding: 5px 10px 5px 5px;border:1px solid rgba(157,157,115,0.5);border-radius:5px;"
+                    },
+                    "blue": {
+                        "event": {
+                            "change": {
+                                "label": "改变"
+                            }
+                        },
+                        "property": {
+                            "value": {
+                                "label": "值"
+                            }
+                        }
+                    },
+                    "sort": 2,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_adbd4523278d4c6a9e579a30287e332b",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_18afcca8c40a4843ad09b8a87710db51",
+                    "icon": "bi bi-view-list",
+                    "label": "space_1",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 3,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_18afcca8c40a4843ad09b8a87710db51",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_263405746e3941ab86c369c462f27bac",
+                    "icon": "bi bi-search",
+                    "label": "bi bi-search_1",
+                    "type": "icon",
+                    "style": "display:inline-block;",
+                    "property": {},
+                    "blue": {
+                        "event": {
+                            "click": {
+                                "label": "单击"
+                            }
+                        }
+                    },
+                    "sort": 4,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_263405746e3941ab86c369c462f27bac",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_7743dc87a0ff4537859c3fbe54621ea7",
+                    "icon": "bi bi-view-list",
+                    "label": "space_2",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 5,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_7743dc87a0ff4537859c3fbe54621ea7",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_c0368544cd5b4ee6b2c85cec2d4087e2",
+                    "icon": "bi bi-view-list",
+                    "label": "space_3",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 6,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_c0368544cd5b4ee6b2c85cec2d4087e2",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_fafecf5fb13a41748bdcbe46d4180089",
+                    "icon": "bi bi-view-list",
+                    "label": "space_4",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 7,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_fafecf5fb13a41748bdcbe46d4180089",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_b2be671a17194896b0c3228a24496442",
+                    "icon": "bi bi-view-list",
+                    "label": "space_5",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 8,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_b2be671a17194896b0c3228a24496442",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_feb8d218f81848eabebad31e6a01033f",
+                    "icon": "bi bi-badge-tm",
+                    "label": "button_1",
+                    "type": "button",
+                    "style": "user-select: none;display:inline-block;cursor: pointer;font-size:13px;padding: 5px 20px 5px 20px;border: 1px solid var(--theme-color);border-radius: 5px;",
+                    "background": 0,
+                    "property": {
+                        "text": {
+                            "label": "文本",
+                            "type": "text",
+                            "context": "新增"
+                        }
+                    },
+                    "blue": {
+                        "event": {
+                            "click": {
+                                "label": "单击"
+                            }
+                        }
+                    },
+                    "sort": 9,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_feb8d218f81848eabebad31e6a01033f",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_d5f94d93549943cda6034101e85502fb",
+                    "icon": "bi bi-view-list",
+                    "label": "space_6",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 10,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_d5f94d93549943cda6034101e85502fb",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_a7772d6872ea4411a1c0e6bf6e476f97",
+                    "icon": "bi bi-badge-tm",
+                    "label": "button_2",
+                    "type": "button",
+                    "style": "user-select: none;display:inline-block;cursor: pointer;font-size:13px;padding: 5px 20px 5px 20px;border: 1px solid var(--theme-color);border-radius: 5px;",
+                    "background": 0,
+                    "property": {
+                        "text": {
+                            "label": "文本",
+                            "type": "text",
+                            "context": "编辑"
+                        }
+                    },
+                    "blue": {
+                        "event": {
+                            "click": {
+                                "label": "单击"
+                            }
+                        }
+                    },
+                    "sort": 11,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_a7772d6872ea4411a1c0e6bf6e476f97",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_1ecfc65d2ead4facb1887d074ad65ecf",
+                    "icon": "bi bi-view-list",
+                    "label": "space_7",
+                    "type": "space",
+                    "style": "width:10px;height:10px;",
+                    "property": {},
+                    "sort": 12,
+                    "group": "base",
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_1ecfc65d2ead4facb1887d074ad65ecf",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_991a5938b27742f1be8fa6ea76a23c5b",
+                    "icon": "bi bi-badge-tm",
+                    "label": "button_3",
+                    "type": "button",
+                    "style": "user-select: none;display:inline-block;cursor: pointer;font-size:13px;padding: 5px 20px 5px 20px;border: 1px solid var(--theme-color);border-radius: 5px;",
+                    "background": 0,
+                    "property": {
+                        "text": {
+                            "label": "文本",
+                            "type": "text",
+                            "context": "删除"
+                        }
+                    },
+                    "blue": {
+                        "event": {
+                            "click": {
+                                "label": "单击"
+                            }
+                        }
+                    },
+                    "sort": 13,
+                    "path": "uuid_04ff62b3f3ea46889c9fc3868f13819a/uuid_991a5938b27742f1be8fa6ea76a23c5b",
+                    "flex": true
+                }
+            ]
+        },
+        {
+            "key": "uuid_392755380ce74edca975b040de8b1981",
+            "icon": "bi bi-grid",
+            "label": "grid_1",
+            "type": "grid",
+            "style": " flex:1;background:transparent;min-height:34px;margin:5px;padding:5px;border-radius:5px;background-color:#fff;",
+            "drop": "component",
+            "background": 0,
+            "property": {
+                "isHost": {
+                    "label": "热区",
+                    "type": "bool",
+                    "context": "false"
+                }
+            },
+            "blue": {
+                "event": {
+                    "click": {
+                        "label": "单击"
+                    }
+                }
+            },
+            "sort": 2,
+            "group": "layout",
+            "path": "uuid_392755380ce74edca975b040de8b1981",
+            "children": [{
+                "key": "uuid_6c1cde7532624993969d27ddfef3734a",
+                "icon": "bi bi-table",
+                "label": "table_1",
+                "option": "[\n  [\n    \"序号\",\n    \"名称\",\n    \"日期\",\n    \"类型\",\n    \"数值\"\n  ],\n  [\n    1,\"名称\",\"2022-01-01\",\"预测\",\"20\"  ],\n  [\n 2,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n3,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n4,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n5,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n6,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n7,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n8,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n9,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ],\n  [\n10,\"名称\",\"2022-01-01\",\"预测\",\"20\"\n  ]\n]",
+                "type": "table",
+                "background": 0,
+                "property": {
+                    "hasHead": {
+                        "label": "表头",
+                        "type": "bool",
+                        "context": "true"
+                    },
+                    "hasMul": {
+                        "label": "多选",
+                        "type": "bool",
+                        "context": "false"
+                    }
+                },
+                "styles": {
+                    "root": "text-align:center;border-top: 1px dashed rgba(175,175,175,0.5);border-left: 1px dashed rgba(175,175,175,0.5);width:100%;",
+                    "th": "padding: 5px;border-bottom: 1px dashed rgba(175,175,175,0.5);border-right: 1px dashed rgba(175,175,175,0.5);min-width:32px; font-size:14px;",
+                    "td": "padding: 5px;border-bottom: 1px dashed rgba(175,175,175,0.5);border-right: 1px dashed rgba(175,175,175,0.5);min-width:32px; font-size:13px;"
+                },
+                "blue": {
+                    "event": {
+                        "select": {
+                            "label": "选择"
+                        }
+                    },
+                    "property": {
+                        "data": {
+                            "label": "数据"
+                        }
+                    }
+                },
+                "sort": 0,
+                "path": "uuid_392755380ce74edca975b040de8b1981/uuid_6c1cde7532624993969d27ddfef3734a"
+            }]
+        },
+        {
+            "key": "uuid_8226540c84154310b6d93eda4c2ade8e",
+            "icon": "bi bi-layout-three-columns",
+            "label": "row_2",
+            "type": "row",
+            "style": "display:flex;background:transparent;min-height:34px;padding:5px;border-radius:5px;align-items: center;",
+            "drop": "component",
+            "background": 0,
+            "property": {},
+            "sort": 3,
+            "group": "layout",
+            "path": "uuid_8226540c84154310b6d93eda4c2ade8e",
+            "children": [{
+                    "key": "uuid_e53288956d044912b1f9726a6bac3a3c",
+                    "icon": "bi bi-type",
+                    "label": "label_1",
+                    "type": "label",
+                    "style": " padding: 5px 10px 5px 10px;border:0;white-space: nowrap;border-radius:5px;font-size:12px;",
+                    "background": 0,
+                    "property": {
+                        "text": {
+                            "label": "文本",
+                            "type": "text",
+                            "context": "共10条"
+                        }
+                    },
+                    "blue": {
+                        "property": {
+                            "value": {
+                                "label": "值"
+                            }
+                        }
+                    },
+                    "sort": 0,
+                    "path": "uuid_8226540c84154310b6d93eda4c2ade8e/uuid_e53288956d044912b1f9726a6bac3a3c",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_0cbc6d402e7b48128dc3f2d683e346a3",
+                    "icon": "bi bi-distribute-horizontal",
+                    "label": "flex_2",
+                    "type": "flex",
+                    "style": "flex:1;height:10px;",
+                    "property": {},
+                    "sort": 1,
+                    "group": "layout",
+                    "path": "uuid_8226540c84154310b6d93eda4c2ade8e/uuid_0cbc6d402e7b48128dc3f2d683e346a3",
+                    "flex": true
+                },
+                {
+                    "key": "uuid_2658b720f30644ad8e090b407ab1ba1e",
+                    "icon": "bi bi-segmented-nav",
+                    "label": "tab_1",
+                    "option": "[\n  \"1\",\n  \"2\",\n  \"3\",\n  \"4\"\n]",
+                    "type": "tab",
+                    "background": 0,
+                    "property": {
+                        "selected": {
+                            "label": "默认选择",
+                            "type": "number",
+                            "context": "0"
+                        }
+                    },
+                    "styles": {
+                        "root": "margin:5px;width:max-content;height:26px; display:flex;cursor: pointer;font-size:13px; border:1px solid var(--theme-color);border-radius:5px;text-align:center;",
+                        "tap": "white-space: nowrap;flex:1;height:26px;line-height:26px;font-size:12px;padding-left:10px;padding-right:10px;",
+                        "tapHover": "background:#09f;color:#fff;"
+                    },
+                    "blue": {
+                        "event": {
+                            "selected": {
+                                "label": "选择"
+                            }
+                        },
+                        "property": {
+                            "list": {
+                                "label": "选项"
+                            },
+                            "selected": {
+                                "label": "选择"
+                            }
+                        }
+                    },
+                    "sort": 2,
+                    "group": "container",
+                    "path": "uuid_8226540c84154310b6d93eda4c2ade8e/uuid_2658b720f30644ad8e090b407ab1ba1e",
+                    "flex": true
+                }
+            ]
+        }
+    ],
+    "modified": "2022-6-18 11:15:11",
+    "name": "list",
+    "path": "/list.json",
+    "canvases": [],
+    "dialogs": [],
+    "info": "",
+    "blues": [{
+            "type": "component",
+            "left": 328,
+            "top": 0,
+            "component": "uuid_485056c6a2ea407681b89aa6ce26396e/uuid_61bb3977765740d58a974316d9979b0a",
+            "key": "uuid_0a3470d2e43840f6a92414971aa018bb",
+            "name": "当前位置",
+            "icon": "bi bi-type",
+            "events": [],
+            "properties": [{
+                "label": "值",
+                "name": "value"
+            }],
+            "methods": [{
+                "label": "显示或隐藏",
+                "name": "toggle"
+            }]
+        },
+        {
+            "type": "catalog",
+            "left": 0,
+            "top": 0,
+            "component": "uuid_f00ea4ea6b8845398770e05400b5a0d3",
+            "key": "uuid_5ee439cba5c24864949f6233c5a2fb9b",
+            "name": "index1",
+            "icon": "bi bi-file-earmark-richtext",
+            "events": [],
+            "properties": [{
+                "label": "页面",
+                "name": "key",
+                "type": "out"
+            }],
+            "methods": [{
+                "label": "打开",
+                "name": "open"
+            }]
+        },
+        {
+            "component": "",
+            "key": "uuid_bd00d23514ce4dc0b29c3bf4c8fe6cec",
+            "name": "单变量",
+            "icon": "bi bi-123",
+            "events": [],
+            "type": "variable",
+            "value": " ",
+            "properties": [{
+                "label": "输出",
+                "name": "result",
+                "type": "out"
+            }],
+            "methods": [],
+            "left": 0,
+            "top": 135
+        },
+        {
+            "component": "",
+            "key": "uuid_d37cb8218d684d5d9e4873281a96351e",
+            "name": "替换字符串",
+            "icon": "bi bi-input-cursor",
+            "events": [],
+            "type": "method",
+            "properties": [{
+                    "label": "输入",
+                    "name": "in",
+                    "type": "in"
+                },
+                {
+                    "label": "被替换",
+                    "name": "threshold",
+                    "type": "in"
+                },
+                {
+                    "label": "替换为",
+                    "name": "threshold1",
+                    "type": "in"
+                },
+                {
+                    "label": "输出",
+                    "name": "result",
+                    "type": "out"
+                }
+            ],
+            "methods": [],
+            "left": 166,
+            "top": 90
+        },
+        {
+            "component": "",
+            "key": "uuid_ec7f0b2c9e2c4d9fb7dbe056ab06ccbc",
+            "name": "单变量",
+            "icon": "bi bi-123",
+            "events": [],
+            "type": "variable",
+            "value": ".json",
+            "properties": [{
+                "label": "输出",
+                "name": "result",
+                "type": "out"
+            }],
+            "methods": [],
+            "left": 0,
+            "top": 66
+        }
+    ],
+    "blueLinks": [{
+            "key": "uuid_5911dbcdb8454b4fa7b238d4204b4d92",
+            "color": "#09f",
+            "from": {
+                "component": "",
+                "blue": "uuid_bd00d23514ce4dc0b29c3bf4c8fe6cec",
+                "name": "result",
+                "type": "property"
+            },
+            "to": {
+                "component": "",
+                "blue": "uuid_d37cb8218d684d5d9e4873281a96351e",
+                "type": "property",
+                "name": "threshold1"
+            },
+            "position": {
+                "x0": 89,
+                "y0": 175,
+                "x1": 181,
+                "y1": 170
+            },
+            "tempPosition": {
+                "x0": 89,
+                "y0": 175,
+                "x1": 179,
+                "y1": 125
+            }
+        },
+        {
+            "key": "uuid_4e2777fd21b94dcd8d2d1314348a3815",
+            "color": "#09f",
+            "from": {
+                "component": "uuid_f00ea4ea6b8845398770e05400b5a0d3",
+                "blue": "uuid_5ee439cba5c24864949f6233c5a2fb9b",
+                "name": "key",
+                "type": "property"
+            },
+            "to": {
+                "component": "",
+                "blue": "uuid_d37cb8218d684d5d9e4873281a96351e",
+                "type": "property",
+                "name": "in"
+            },
+            "position": {
+                "x0": 85,
+                "y0": 40,
+                "x1": 181,
+                "y1": 130
+            },
+            "tempPosition": {
+                "x0": 85,
+                "y0": 40,
+                "x1": 179,
+                "y1": 85
+            }
+        },
+        {
+            "key": "uuid_b3ca3da0847b4eac8c7fcd8ed1f9daa2",
+            "color": "#09f",
+            "from": {
+                "component": "",
+                "blue": "uuid_ec7f0b2c9e2c4d9fb7dbe056ab06ccbc",
+                "name": "result",
+                "type": "property"
+            },
+            "to": {
+                "component": "",
+                "blue": "uuid_d37cb8218d684d5d9e4873281a96351e",
+                "type": "property",
+                "name": "threshold"
+            },
+            "position": {
+                "x0": 89,
+                "y0": 106,
+                "x1": 181,
+                "y1": 150
+            },
+            "tempPosition": {
+                "x0": 89,
+                "y0": 106,
+                "x1": 179,
+                "y1": 105
+            }
+        },
+        {
+            "key": "uuid_f0e0ca897da04950aca6ccf5e56f225f",
+            "color": "#09f",
+            "from": {
+                "component": "",
+                "blue": "uuid_d37cb8218d684d5d9e4873281a96351e",
+                "name": "result",
+                "type": "property"
+            },
+            "to": {
+                "component": "uuid_485056c6a2ea407681b89aa6ce26396e/uuid_61bb3977765740d58a974316d9979b0a",
+                "blue": "uuid_0a3470d2e43840f6a92414971aa018bb",
+                "type": "property",
+                "name": "value"
+            },
+            "position": {
+                "x0": 261,
+                "y0": 130,
+                "x1": 343,
+                "y1": 60
+            },
+            "tempPosition": {
+                "x0": 259,
+                "y0": 85,
+                "x1": 343,
+                "y1": 60
+            }
+        },
+        {
+            "key": "uuid_f3fb79a396a34cd6b2912e1881102e2b",
+            "color": "#09f",
+            "from": {
+                "component": "uuid_f00ea4ea6b8845398770e05400b5a0d3",
+                "blue": "uuid_5ee439cba5c24864949f6233c5a2fb9b",
+                "name": "key",
+                "type": "property"
+            },
+            "to": {
+                "component": "uuid_485056c6a2ea407681b89aa6ce26396e/uuid_61bb3977765740d58a974316d9979b0a",
+                "blue": "uuid_0a3470d2e43840f6a92414971aa018bb",
+                "type": "property",
+                "name": "value"
+            },
+            "position": {
+                "x0": 85,
+                "y0": 40,
+                "x1": 343,
+                "y1": 60
+            },
+            "tempPosition": {
+                "x0": 85,
+                "y0": 40,
+                "x1": 343,
+                "y1": 60
+            }
+        }
+    ],
+    "guides": [],
+    "change": false
+}
