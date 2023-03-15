@@ -18,7 +18,24 @@ export function renderColorPicker(ele: HTMLElement, color: string, onPicker: (co
     isCapture=false;
     var pickerTop= getDivClientTop(ele) + 20;
     var pickerLeft =ele.getBoundingClientRect().left - 200;
-    var baseColor = { r: 255, g: 0, b: 0 };
+    var baseColor = { r: 0, g: 0, b: 0 };
+
+    if(color!=undefined&&color.startsWith("rgb")){
+        var rgbaColor=getRgba(color);
+        console.log("rgbaColor",rgbaColor);
+        if(rgbaColor.startsWith("rgba")){
+
+            var RgbValue = rgbaColor.replace("rgba(", "").replace(")", "");
+            var RgbValueArry = RgbValue.split(",");
+            baseColor={r:parseInt(RgbValueArry[0]),g:parseInt(RgbValueArry[1]),b:parseInt(RgbValueArry[2])};
+            var hsv= rgbToHsv(parseInt(RgbValueArry[0]),parseInt(RgbValueArry[1]),parseInt(RgbValueArry[2]));
+
+
+            
+        }
+
+    }
+
 
     if(pickerTop>window.innerHeight-400){
         pickerTop=window.innerHeight-400;
@@ -38,7 +55,7 @@ export function renderColorPicker(ele: HTMLElement, color: string, onPicker: (co
         e.stopPropagation();
     }
     //
-    picker.className = "picker";
+    picker.className = "picker surface";
     picker.style.overflow="hidden";
     picker.id = "picker";
     picker.style.top = pickerTop + "px";
@@ -117,6 +134,8 @@ export function renderColorPicker(ele: HTMLElement, color: string, onPicker: (co
 
     var platebg = document.createElement("div");
     platebg.className = "picker_bg";
+    console.log(baseColor);
+    platebg.style.backgroundColor="rgb("+baseColor.r+","+baseColor.g+","+baseColor.b+")";
     plate.appendChild(platebg);
 
 
@@ -583,6 +602,35 @@ function hsvToRgb(h: number, s: number, v: number) {
     return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
 }
 
+export function getRgba(color:string){
+    if(color==undefined){
+        return "rgba(0,0,0,1)"
+    }else
+
+    if (color == "var(--theme-color)") {
+
+        color = getProject().themeColor;
+    } else if (color == "var(--light-color)") {
+
+        color = getProject().lightColor;
+    }
+   
+    if(color.startsWith("#")){
+        var rgb=set16ToRgb(color);
+        if(rgb==undefined)
+        var RgbValue = rgb.replace("rgb(", "").replace(")", "");
+        var RgbValueArry = RgbValue.split(",");
+        return  "rgba("+RgbValueArry[0]+","+RgbValueArry[1]+","+RgbValueArry[2]+",1)"
+    }else if(color.startsWith("rgb(")){
+        var RgbValue = color.replace("rgb(", "").replace(")", "");
+
+
+        var RgbValueArry = RgbValue.split(",");
+        return  "rgba("+RgbValueArry[0]+","+RgbValueArry[1]+","+RgbValueArry[2]+",1)"
+    }else if(color.startsWith("rgba(")){
+       return color;
+    }
+}
 
 export function isDark(color:string){
 

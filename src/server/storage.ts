@@ -208,6 +208,34 @@ export function savePage(page: string, folder: string, wProject: IProject): any 
         emptyFolder(imagesPath);
 
     }
+
+    //删除多余的模型
+    var mls=page.match(/(u([a-z]|[0-9])+\.gltf)/g);
+    if (mls != undefined && mls.length > 0) {
+        //page key 
+        var tempKey = page.match(/"key"\:"[^"]+"/)[0];//"key":"index"
+        var key = tempKey.substring(7, tempKey.length - 1);
+        //删除多余的文件
+        var imagesPath = path.join(getProjectFolderPath(wProject, 'models'), key);
+        if (fs.existsSync(imagesPath)) {
+            var list = fs.readdirSync(imagesPath);
+            for (var i = 0; i < list.length; i++) {
+                var file = list[i];
+                if (mls.indexOf(file) == -1) {
+                    fs.unlinkSync(imagesPath + "/" + file);
+                }
+            }
+        }
+    
+    } else {
+        //page key 
+        var tempKey = page.match(/"key"\:"[^"]+"/)[0];//"key":"index"
+        var key = tempKey.substring(7, tempKey.length - 1);
+        //删除多余的文件
+        var imagesPath = path.join(getProjectFolderPath(wProject, 'models'), key);
+        emptyFolder(imagesPath);
+
+    }
     //记录最近保存过得页面
     saveRecentPage(folder,wProject);
 
@@ -492,7 +520,7 @@ export function saveProject(wProject: IProject): any {
     return fs.writeFileSync(p, JSON.stringify(wProject, null, 2));
 
 }
-export function getProjectFolderPath(project: any, folder?: "pages" | "images"): string {
+export function getProjectFolderPath(project: any, folder?: "pages" | "images"|"models"): string {
     var work = path.join(app.getPath("home"), ".prototyping", "work");
     if (folder == undefined) {
         return path.join(work, project.name);
@@ -500,6 +528,12 @@ export function getProjectFolderPath(project: any, folder?: "pages" | "images"):
         return path.join(work, project.name, "pages");
     } else if (folder == "images") {
         var iPath = path.join(work, project.name, "images");
+        if (!fs.existsSync(iPath)) {
+            fs.mkdirSync(iPath);
+        }
+        return iPath;
+    }else if (folder == "models") {
+        var iPath = path.join(work, project.name, "models");
         if (!fs.existsSync(iPath)) {
             fs.mkdirSync(iPath);
         }
@@ -612,6 +646,25 @@ export function saveImage(iPath: string, wProject: IProject, pageKey: string): s
         fs.copyFileSync(iPath, newPath);
         return newName;
     } else {
+        var imagePageFolder = path.join(imageFodler, pageKey);
+        if (!fs.existsSync(imagePageFolder)) {
+            fs.mkdirSync(imagePageFolder);
+        }
+        var newPath = path.join(imagePageFolder, newName);
+        fs.copyFileSync(iPath, newPath);
+        return path.join(pageKey, newName);
+    }
+
+}
+
+export function saveModel(iPath: string, wProject: IProject, pageKey: string): string {
+
+    var newName = getUUID() + path.extname(iPath);
+    var imageFodler = getProjectFolderPath(wProject, 'models');
+    if (!fs.existsSync(imageFodler)) {
+        fs.mkdirSync(imageFodler);
+    }
+    if (pageKey != undefined) {
         var imagePageFolder = path.join(imageFodler, pageKey);
         if (!fs.existsSync(imagePageFolder)) {
             fs.mkdirSync(imagePageFolder);

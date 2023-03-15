@@ -250,6 +250,28 @@ export function loadProjectIpc() {
         })
 
     });
+
+    ipcMain.on("insertModel", (event: any, pageKey: any) => {
+        var project=getProjectByEvent(event);
+        var bw=getBrowserWindow(event);
+
+        if (pageKey != undefined && pageKey.length>0) {
+            var list = dialog.showOpenDialogSync(bw, { properties: ['openFile'], filters: [{ name: "*", extensions: ["gltf"] }] });//filters: [{ name: "*", extensions: ["prototyping"] }] }
+            var result: string[] = [];
+            if (list != undefined && list.length > 0) {
+                // list.forEach(element => {
+                   
+                // });
+                var element=list[0];
+                var path = storage.saveModel(element, project, pageKey);
+                result.push(path)
+            }
+            sendData(event, "_insertModel", result);
+        }
+
+
+    });
+
     ipcMain.on("insertImage", (event: any, pageKey: any) => {
         var project=getProjectByEvent(event);
         var bw=getBrowserWindow(event);

@@ -1,18 +1,19 @@
 
-import { loadChart } from "../../render/chart";
-import { IComponent } from "../../common/interfaceDefine"
+import { IComponent } from "../../common/interfaceDefine";
 // import * as THREE from "three";
 import * as BABYLON from 'babylonjs';
-import { OBJFileLoader } from 'babylonjs-loaders';//babylonjs-loaders/OBJ/index
+import 'babylonjs-loaders'; //babylonjs-loaders/OBJ/index
 
 //import { OBJLoader} from "three/examples/js/loaders/OBJLoader.js";
 // import {MTLLoader} from "three/examples/jsm/loaders/MTLLoader.js";
 
-import { getCurPage } from "../../render/workbench";
+import { ipcRendererSend } from "../../preload";
+import { getCurPageKey } from "../../render/workbench";
+import { getProject } from "../../render/workspace";
 const component: IComponent = {
     isTemplate: true, key: "model", label: "model", icon: "bi bi-box", type: "model", group: "base",
     option: "",//model地址
-    style: "height:200px;width:400px;",
+    style: "height:200px;width:400px;cursor: pointer;",
     onPreview: () => {
         var chartDiv = document.createElement("div");
         chartDiv.className = "chartDiv";
@@ -21,21 +22,31 @@ const component: IComponent = {
         icon.className = "bi bi-box";
         chartDiv.appendChild(icon);
         return chartDiv;
-    }, onRender: (component, element, content) => {
-        var canvas: any;
+    }, onRender: (component, element, content,type) => {
+        var body: any;
         if (element != undefined) {
-            canvas = element;
-            canvas.innerHTML = "";
+            body = element;
+            body.innerHTML = "";
         }
         else {
-            canvas = document.createElement("canvas");
+            body = document.createElement("div");
             if (content != undefined)
-                content.appendChild(canvas);
+                content.appendChild(body);
         }
-        canvas.style.cssText = component.style;
-
+        body.style.cssText = component.style;
+        var canvas=document.createElement("canvas");
+        canvas.style.height=body.style.height;
+        canvas.style.width=body.style.width;
+        canvas.style.outline="none";
+        body.appendChild(canvas);
+        if(type!="product"){
+            body.ondblclick = () => {
+                ipcRendererSend("insertModel",getCurPageKey());
+            }
+        }
         setTimeout(() => {
             //等组件加载完成后，加载three场景及模型
+            console.log(canvas);
             var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
             const scene = new BABYLON.Scene(engine);
             scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
@@ -49,8 +60,30 @@ const component: IComponent = {
             if (component.option != undefined && component.option.length > 0) {
                 // var loader = new BABYLON.AssetsManager(scene);
 
-                const url = component.option.trim().replace("\n", "");
+                var url = component.option.trim().replace("\n", "");
 
+                if(!url.startsWith("http")){
+                    if(type!=undefined&&type=="product"){
+                        url = "./models/"+url;
+                    }else{
+                        url =getProject().work+ "/models/"+url;
+                    }
+                    // url= getProject().work + "/models/"+ url;
+                }
+
+                var rootpath=url.substring(0,url.lastIndexOf("/")+1);
+                var name=url.substring(url.lastIndexOf("/")+1);
+        
+                var loader = new BABYLON.AssetsManager(scene);
+                var bunny = loader.addMeshTask("model", "", rootpath,name);
+                bunny.onSuccess = ()=>{
+                };
+                loader.onFinish = function () {
+                    engine.runRenderLoop(function () {
+                        scene.render();
+                    });
+                };
+                loader.load();
                 // Append glTF model to scene.
                 // BABYLON.SceneLoader.Append("/Users/taoyongwen/Downloads/model/", "model.gltf", scene, function (scene) {
                 //     // Create a default arc rotate camera and light.
@@ -60,12 +93,21 @@ const component: IComponent = {
                 //     // Rotate the camera by 180 degrees to the front of the asset.
                 //     // scene.activeCamera.alpha += Math.PI;
                 // });
-                // var objLoader=new  OBJFileLoader();
-                // objLoader.(scene,"","/Users/taoyongwen/Downloads/model/").then((obj)=>{
+                // fetch("https://www.violetime.com/model/model.obj").then((response)=>{
+                //     response .text().then((jsonObj=>{
+                //         console.log("json",jsonObj);
+                //         var objLoader=new  OBJFileLoader({computeNormals:true,importVertexColors:true,invertTextureY:true,invertY:true,materialLoadingFailsSilently:true,
+                //             optimizeNormals:true,optimizeWithUV:true,skipMaterials:true,UVScaling:new BABYLON.Vector2(1,1)});
+                //         objLoader.loadAsync(scene, jsonObj,"https://www.violetime.com/model/").then((obj:any)=>{
 
-                //     console.log("obj",obj);
+                //             console.log("obj",obj);
+                //             scene.addGeometry(obj);
 
-                // });
+                //         });
+                //     }));
+
+                // })
+
 
                 // BABYLON.SceneLoader.Load("/Users/taoyongwen/Downloads/model/", "model.obj", engine, function (newScene) { // ...
                 // });
@@ -102,8 +144,8 @@ const component: IComponent = {
 
 
 
-        }, 500);
-        return { root: canvas, content: canvas };
+        }, 200);
+        return { root: body, content: body };
     }
 }
 export default function load() {

@@ -516,15 +516,20 @@ export function updatePageViewScrollV() {
 
             var page_view = document.getElementById("page_view_" + page.key);
             var sroll_v: any = page_view.getElementsByClassName("sroll_v")[0];
+            if(sroll_v!=undefined)
             sroll_v.style.bottom = viewPosition.bottom + "px";
 
             var sroll_h: any = page_view.getElementsByClassName("sroll_h")[0];
-            sroll_h.style.bottom = viewPosition.bottom + "px";
+            if(sroll_h!=undefined){
+                sroll_h.style.bottom = viewPosition.bottom + "px";
 
-            var sroll_v_block: any = sroll_v.children.item(0);
-            var sroll_v_block_h = Math.pow(window.innerHeight - viewPosition.top - viewPosition.bottom, 2) / (page.height + 200);
-            sroll_v_block.style.height = sroll_v_block_h + "px";
+                var sroll_v_block: any = sroll_v.children.item(0);
+                var sroll_v_block_h = Math.pow(window.innerHeight - viewPosition.top - viewPosition.bottom, 2) / (page.height + 200);
+                sroll_v_block.style.height = sroll_v_block_h + "px";
+    
 
+            }
+     
 
 
         });
@@ -556,19 +561,24 @@ export function updatePageViewScrollH() {
             var page_view = document.getElementById("page_view_" + page.key);
 
             var sroll_v: any = page_view.getElementsByClassName("sroll_v")[0];
+            if(sroll_v!=undefined)
             sroll_v.style.right = viewPosition.right + "px";
 
             var sroll_h: any = page_view.getElementsByClassName("sroll_h")[0];
-            sroll_h.style.right = viewPosition.right + "px";
+            if(sroll_h!=undefined){
+                sroll_h.style.right = viewPosition.right + "px";
 
-            var sroll_h_block_w = Math.pow(window.innerWidth - viewPosition.left - viewPosition.right, 2) / (page.width + 200);
-            sroll_h.children.item(0).style.width = sroll_h_block_w + "px";
+                var sroll_h_block_w = Math.pow(window.innerWidth - viewPosition.left - viewPosition.right, 2) / (page.width + 200);
+                sroll_h.children.item(0).style.width = sroll_h_block_w + "px";
+            }
+           
 
         });
     });
 
 
 }
+
 
 export function getLayers(): Array<IComponent> {
     if (getCurPage() == undefined) {

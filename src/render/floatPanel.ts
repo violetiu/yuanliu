@@ -66,6 +66,7 @@ function renderSilderBar(content: HTMLElement) {
         }
         document.onmouseup = () => {
             move = false;
+            updatePageViewScrollH();
             updatePageViewScrollV();
         }
 

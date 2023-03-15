@@ -1341,8 +1341,8 @@ iframe {
     position: fixed;
     top: 500px;
     width: 280px;
-    background: #fff;
     border-radius: 5px;
+    box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .picker_content {
@@ -1379,7 +1379,7 @@ iframe {
     left: 0;
     bottom: 0;
     right: 0;
-    background: var(--theme-color);
+    /* background: var(--theme-color); */
 }
 
 .picker_over {
@@ -1458,6 +1458,7 @@ iframe {
     width: 10px;
     border-radius: 10px;
     border: 2px solid #fff;
+
 }
 
 .hub {

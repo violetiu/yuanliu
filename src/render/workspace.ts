@@ -14,7 +14,7 @@ import { activePropertyPanel, renderPropertyPanel } from "./propertypanel";
 import { renderSidebar, updateSidebar } from "./sidebar";
 import { renderStatusBar } from "./statusBar";
 import { renderToolbar, updateToolbar } from "./toolbar";
-import { findCurPageComponent, getCurPage, getCurPageContent, getLayers, getSelectComponents, loadProjectTitleNav, renderPage, setSelectComponents, updatePageViewScrollH } from "./workbench";
+import { findCurPageComponent, getCurPage, getCurPageContent, getLayers, getSelectComponents, loadProjectTitleNav, renderPage, setSelectComponents, updatePageViewScrollH, updatePageViewScrollV } from "./workbench";
 var project: IProject;
 export function getProject(): IProject {
     return project;
@@ -97,7 +97,22 @@ export function renderWorkSpace(app: HTMLElement) {
     ipcRenderer.on("_savePage", (event, arg: IPage) => {
         showMessageBox("页面保存成功", "info");
     })
+//插入model
+ipcRenderer.on("_insertModel", (event, arg) => {
+    console.log("_insertModel",arg);
+    if (getSelectComponents().length == 1) {
+        var parent = findCurPageComponent(getSelectComponents()[0]);
+        if (parent != undefined && parent.type == "model") {
+            //如果是组件是 图片组 ，则直接插入
+          
+                parent.option= arg[0];
+        
+        
+            parent.onRender(parent, document.getElementById(parent.key));
 
+        }
+    }
+});
     //插入图片
     ipcRenderer.on("_insertImage", (event, arg) => {
         console.log("_insertImage", arg);
@@ -424,11 +439,16 @@ function renderRightSilderBar(content: HTMLElement, t: number,r:number,b:number)
                 //  document.getElementById("workbench").style.width = (width) + "px";
                 edgePanel.style.width = (width) + "px";
                 silderBar.style.right=width+"px";
+               
+               
+
             }
         }
         document.onmouseup = () => {
             move = false;
             updatePageViewScrollH();
+            updatePageViewScrollV();
+           
         }
     };
 }

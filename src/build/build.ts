@@ -223,12 +223,18 @@ function copyModules(dist:string){
     var xlsx=path.join(modules,"xlsx/dist/xlsx.full.min.js");
     var dom=path.join(modules,"dom-to-image/dist/dom-to-image.min.js");
 
+    var BABYLON=path.join(modules,"babylonjs/babylon.js");
+    var BABYLONLoader=path.join(modules,"babylonjs-loaders/babylonjs.loaders.js");
+    var BABYLONLoaderGltf2=path.join(modules,"babylonjs-loaders/babylon.glTF2FileLoader.js");
+
     fs.copyFileSync(echarts,path.join(js,"echarts.js"));
     fs.copyFileSync(fileSaver,path.join(js,"FileSaver.js"));
     fs.copyFileSync(xlsx,path.join(js,"xlsx.full.min.js"));
     fs.copyFileSync(dom,path.join(js,"dom-to-image.min.js"));
 
-
+    fs.copyFileSync(BABYLON,path.join(js,"babylon.js"));
+    fs.copyFileSync(BABYLONLoader,path.join(js,"babylonjs.loaders.js"));
+    fs.copyFileSync(BABYLONLoaderGltf2,path.join(js,"babylon.glTF2FileLoader.js"));
 }
 
 /**
@@ -370,6 +376,11 @@ function buildData(wProject: any,terminal?:(log:any)=>void) {
     var imageDist = path.join(app.getPath("home"), ".prototyping", "build", wProject.name, "images");
     copyDir(imageFolder, imageDist);
 
+    //model
+    var modelFolder = storage.getProjectFolderPath(wProject, "models");
+    var modelDist = path.join(app.getPath("home"), ".prototyping", "build", wProject.name, "models");
+    copyDir(modelFolder, modelDist);
+    
     //bgimage 内置图片
    // storage.read
  

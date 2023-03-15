@@ -599,6 +599,7 @@ export class FormColor {
             e.stopPropagation();
             renderColorPicker(div, this.value, (color) => {
                 input.value = color;
+                this.value=color;
                 iconDiv.style.background = color;
                 if (this.onChange)
                     this.onChange(color);
