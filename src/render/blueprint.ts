@@ -640,8 +640,8 @@ function renderBlue(conotent: HTMLElement, blue: IBlue, element?: HTMLElement): 
         if (ed.button != 0) {
             return;
         }
-
-        var blueDiv = ed.path[1];
+        
+        var blueDiv = ed.target.parentElement;
         var startY = ed.clientY;
         var startX = ed.clientX;
         var blueTop = parseFloat(blueDiv.style.top.replace("px", ""));

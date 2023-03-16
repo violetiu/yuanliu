@@ -70,7 +70,7 @@ const component: IComponent = {
                     }
                     // url= getProject().work + "/models/"+ url;
                 }
-
+                
                 var rootpath=url.substring(0,url.lastIndexOf("/")+1);
                 var name=url.substring(url.lastIndexOf("/")+1);
         

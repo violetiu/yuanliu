@@ -329,11 +329,13 @@ select {
 .explorer_folder i {
     padding-left: 2px;
     padding-right: 5px;
+ 
 }
 
 .explorer_file i {
     padding-left: 2px;
     padding-right: 5px;
+    opacity: 0.6;
 }
 
 .explorer_row {
@@ -911,7 +913,8 @@ i[data-rotate]::before {
 }
 
 .blue {
-    border: 1px solid #098;
+    background: rgba(157,157,157,0.2);
+    
 }
 
 .blue[data-type=title] {
@@ -939,49 +942,36 @@ i {
     background-color: #f90;
 }
 
-.blue[data-type=project] {
-    border: 1px solid #f90;
-}
+
 
 .blue[data-type=page] .blueTitleBar {
     background-color: #f09;
 }
 
-.blue[data-type=page] {
-    border: 1px solid #f09;
-}
 
 .blue[data-type=component] .blueTitleBar {
     background-color: #09f;
 }
 
-.blue[data-type=component] {
-    border: 1px solid #09f;
-}
+
 
 .blue[data-type=method] .blueTitleBar {
     background-color: #90f;
 }
 
-.blue[data-type=method] {
-    border: 1px solid #90f;
-}
+
 
 .blue[data-type=variable] .blueTitleBar {
     background-color: #4b0;
 }
 
-.blue[data-type=variable] {
-    border: 1px solid #4b0;
-}
+
 
 .blue[data-type=window] .blueTitleBar {
     background-color: #940;
 }
 
-.blue[data-type=window] {
-    border: 1px solid #940;
-}
+
 
 .blue[data-type=disabled] .blueTitleBar {
     background-color: #f00;
@@ -995,41 +985,28 @@ i {
     background-color: #077;
 }
 
-.blue[data-type=catalog] {
-    border: 1px solid #077;
-}
 
 .blue[data-type=matrix] .blueTitleBar {
     background-color: #23f;
 }
 
-.blue[data-type=matrix] {
-    border: 1px solid #23f;
-}
 
 .blue[data-type=database] .blueTitleBar {
     background-color: #9a3;
 }
 
-.blue[data-type=database] {
-    border: 1px solid #9a3;
-}
 
 .blue[data-type=hub] .blueTitleBar {
     background-color: #85f;
 }
 
-.blue[data-type=hub] {
-    border: 1px solid #85f;
-}
+
 
 .blue[data-type=link] .blueTitleBar {
     background-color: #555;
 }
 
-.blue[data-type=link] {
-    border: 1px solid #555;
-}
+
 
 .blueTitleBar i {
     padding-left: 10px;

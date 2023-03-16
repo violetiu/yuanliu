@@ -44,7 +44,7 @@ export function loadBlueprint(blues, links) {
 }
 
 function renderLines(links, blues) {
-    console.log("renderLines");
+    console.log("renderLines",links,blues);
     var pageView = document.getElementById("pageView");
     var page = pageView.children.item(0);
     if (page == undefined) {
@@ -58,7 +58,7 @@ function renderLines(links, blues) {
     svg.style.pointerEvents = "none";
     svg.style.height = page.clientHeight + "px";
     svg.style.width = page.clientWidth + "px";
-    svg.style.zIndex = "-1";
+    svg.style.zIndex = "0";
     page.appendChild(svg);
 
     blues.forEach(blue => {
@@ -68,9 +68,9 @@ function renderLines(links, blues) {
             var lineLinks = links.filter(l => l.from.blue == blue.key);
             console.log("lineLinks", lineLinks);
             lineLinks.forEach(lineLink => {
-                var blue = blues.find(b => b.key == lineLink.to.blue)
-                if (blue != undefined) {
-                    var compt = findCurPageComponent(blue.component);
+                var blue0 = blues.find(b => b.key == lineLink.to.blue)
+                if (blue0 != undefined) {
+                    var compt = findCurPageComponent(blue0.component);
                     if (compt != undefined) {
                         var comptDiv = document.getElementById(compt.key);
 
@@ -82,8 +82,9 @@ function renderLines(links, blues) {
 
             //排序
             points.sort((a, b) => a[1] - b[1]);
-            console.log(points);
+            console.log("points",points);
             //开始绘制
+            if(points.length>0)
             for (var i = 0; i < points.length - 1; i++) {
                 var start = points[i];
                 var end = points[i + 1];
@@ -113,8 +114,10 @@ function renderLines(links, blues) {
 
             }
             //绘制端点
+            if(points.length>0)
             {
                 var start = points[0];
+       
                 var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                 var startX = start[0] + start[2] / 2;
                 var startY = start[1] + start[3] + 10;
@@ -126,7 +129,8 @@ function renderLines(links, blues) {
                 circle.setAttribute("style", "fill:" + stroke + ";stroke:" + stroke + ";stroke-width:1px;");
 
                 svg.appendChild(circle);
-            } {
+            } 
+            if(points.length>0){
                 var end = points[points.length - 1];
                 var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                 var endX = end[0] + end[2] / 2;
@@ -135,7 +139,7 @@ function renderLines(links, blues) {
                 circle.setAttribute("cx", endX);
                 circle.setAttribute("cy", endY);
                 circle.setAttribute("r", 5);
-                circle.setAttribute("style", "fill:" + stroke + ";stroke:" + stroke + ";stroke-width:1px;");
+                circle.setAttribute("style", "fill:none;stroke:" + stroke + ";stroke-width:2px;");
 
                 svg.appendChild(circle);
             }

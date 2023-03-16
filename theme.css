@@ -3,13 +3,13 @@ Copyright (c) taoyongwen. All rights reserved.
 ***************************************************************************** */
 
 .dark {
-    background: #272829;
+    background: #171819;
     color: #ddd;
     border-color: #999;
 }
 
 .light {
-    background: rgb(235, 230, 226);
+    background: rgb(250, 245, 241);
     color: #222;
     border-color: #999;
 }
@@ -45,7 +45,7 @@ Copyright (c) taoyongwen. All rights reserved.
     outline-offset: -1px;
 }
 .dark .surface {
-    background: rgba(20, 20, 20, 1);
+    background: rgba(40,40,40,1);
 }
 
 .light .surface {
@@ -53,7 +53,7 @@ Copyright (c) taoyongwen. All rights reserved.
 }
 
 .dark[data-colorfull=true] .surface {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(40, 40, 40, 0.6);
     backdrop-filter: blur(40px);
 }
 
@@ -245,13 +245,13 @@ button {
     border: 1px solid rgba(255, 255, 255, 0.5);
 } */
 
-.light .explorer {
+/* .light .explorer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .dark .explorer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1)
-}
+} */
 
 .light .explorer_view {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -323,13 +323,13 @@ button {
     /* background-color: #222; */
 }
 
-.light .silderBarBlock {
+/* .light .silderBarBlock {
     background-color: #ccc;
 }
 
 .dark .silderBarBlock {
     background-color: #555;
-}
+} */
 
 .light .silderBarBlock:hover {
     background-color: var(--theme-color);
@@ -339,13 +339,13 @@ button {
     background-color: var(--theme-color);
 }
 
-.light .silderBarBlockV {
+/* .light .silderBarBlockV {
     background-color: #ccc;
 }
 
 .dark .silderBarBlockV {
     background-color: #555;
-}
+} */
 
 .light .silderBarBlockV:hover {
     background-color: var(--theme-color);
@@ -472,11 +472,11 @@ button {
 }
 
 .dark #pageLayout {
-    background: #000;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .light #pageLayout {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .component_canvas[vision=true] {
@@ -540,7 +540,7 @@ button {
 }
 
 .dark .form_bg {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .light .componentContextMenuItem {
