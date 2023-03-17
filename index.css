@@ -1723,6 +1723,7 @@ iframe {
     width: 100%;
     display: flex;
     font-size: 12px;
+    transition: background-color 2s;
 }
 
 .statusBarActivity {
@@ -1887,4 +1888,7 @@ iframe {
 
 .link:hover {
     text-decoration: underline;
+}
+.workbench_page{
+
 }

@@ -125,6 +125,7 @@ function renderNav() {
     nav_bar = document.createElement("div");
     nav_bar.className = "nav_bar";
     nav_bar.id = "nav_bar";
+  
     document.body.setAttribute("nav-model",nav_data.model);
 
     if(nav_data.model==undefined||nav_data.model=="0"){

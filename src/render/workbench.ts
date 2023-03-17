@@ -420,6 +420,7 @@ export function renderPage(page: IPage) {
         //添加页面
         var pageView = document.createElement("div");
         pageView.id = "page_view_" + page.key;
+        pageView.className="workbench_page";
         pageView.style.position = "absolute";
         pageView.style.top = "0px";
         pageView.style.left = "0px";

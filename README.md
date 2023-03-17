@@ -12,11 +12,11 @@
 - 团队协作 - 内置git、sftp工具，团队协同、实时发布轻松搞定。
 - 丰富素材 - 可以共享自己的设计、或使用优秀的设计（待完善）。
 ### 起始页
-![源流起始页](./HubScreenshot.png)
+![源流起始页](./start.png)
 ### 主页面
 ![源流主界面](./MainHubScreenshot.png)
 ### 蓝图页面
-![源流蓝图界面](./Bluepoint.png)
+![源流蓝图界面](./blue.png)
 ### 导出页面
 ![源流导出界面](./Export.png)
 

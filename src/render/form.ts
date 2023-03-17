@@ -45,7 +45,7 @@ export function createDivFile(content: HTMLElement, name: string, value: any, on
    div.style.height = "20px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
    div.className = "form_bg";
 
 
@@ -145,7 +145,7 @@ export function createDivPassword(content: HTMLElement, name: string, value: any
    div.style.height = "20px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
    div.className = "form_bg";
 
 
@@ -202,7 +202,7 @@ export function createDivInput(content: HTMLElement, name: string, value: any, o
    div.style.height = "20px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -266,7 +266,7 @@ export function createDivColors(content: HTMLElement, name: string, value: any, 
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -346,7 +346,7 @@ export function createDivText(content: HTMLElement, name: string, value: any, on
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -400,7 +400,7 @@ export function createDivTip(content: HTMLElement, name: string, value: any) {
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -431,7 +431,7 @@ export function createDivNumbers(content: HTMLElement, name: string, value: any[
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -481,7 +481,7 @@ export function createDivNumber(content: HTMLElement, name: string, value: any, 
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -557,7 +557,7 @@ export function createDivIconTap(content: HTMLElement, icons: string[], values: 
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
    div.className = "form_bg";
 
 
@@ -583,7 +583,7 @@ export function createDivBool(content: HTMLElement, name: string, values: string
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -639,7 +639,7 @@ export function createDivIconSelect(content: HTMLElement, name: string, icons: s
    div.style.height = "20px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
 
    div.className = "form_bg";
 
@@ -661,7 +661,7 @@ export function createDivIconSelect(content: HTMLElement, name: string, icons: s
       icon.className = icons[i];
       icon.style.padding = "5px";
       icon.setAttribute("data-index", i + "");
-      icon.style.borderRadius = "5px";
+      icon.style.borderRadius = "10px";
       icon.style.cursor = "pointer";
       iconDiv.appendChild(icon);
       if (i != values) {
@@ -695,7 +695,7 @@ export function createDivSolider(content: HTMLElement, name: string, value: numb
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
    div.style.height = "20px";
    div.className = "form_bg";
 
@@ -715,7 +715,7 @@ export function createDivSolider(content: HTMLElement, name: string, value: numb
    bg.style.width = "100%";
    bg.style.height = "4px";
    bg.className = "background";
-   bg.style.borderRadius = "5px";
+   bg.style.borderRadius = "10px";
    var point = document.createElement("div");
 
    point.style.position = "absolute";
@@ -773,7 +773,7 @@ export function createDivSelect(content: HTMLElement, name: string, value: any, 
    div.style.fontSize = "12px";
    div.style.padding = "5px 10px 5px 10px";
    div.style.alignItems = "center";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
    div.className = "form_bg"
 
 
@@ -838,7 +838,7 @@ export function createDivCheck(content: HTMLElement, name: string, value: any, o
    div.style.fontSize = "12px";
    div.style.height = "20px";
    div.style.padding = "5px 10px 5px 10px";
-   div.style.borderRadius = "5px";
+   div.style.borderRadius = "10px";
    div.style.alignItems = "center";
    div.className = "form_bg";
 

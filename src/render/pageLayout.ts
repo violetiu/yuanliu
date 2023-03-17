@@ -25,6 +25,7 @@ export function renderPageLayout() {
     const width = pageLayout.clientWidth;
     const rate = width / page.clientWidth;
     pageLayout.innerHTML = "";
+
     pageLayout.style.position = "relative";
     pageLayout.style.height = page.clientHeight * rate + "px";
 

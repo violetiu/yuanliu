@@ -21,7 +21,7 @@ export function renderMarkDownPage(content: HTMLElement,url:string) {
     view.className="surface";
     view.style.padding="50px";
     view.style.borderRadius="5px";
-    view.style.boxShadow="0px 0px 10px rgba(0,0,0,0.2)";
+    // view.style.boxShadow="0px 0px 10px rgba(0,0,0,0.2)";
     page.appendChild(view);
 
 

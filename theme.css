@@ -471,13 +471,13 @@ button {
     }
 }
 
-.dark #pageLayout {
+/* .dark #pageLayout {
     background: rgba(0, 0, 0, 0.2);
 }
 
 .light #pageLayout {
     background: rgba(255, 255, 255, 0.8);
-}
+} */
 
 .component_canvas[vision=true] {
     box-shadow: 0px 0px 2px var(--theme-color);
@@ -536,7 +536,7 @@ button {
 }
 
 .light .form_bg {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(240, 240, 240, 0.5);
 }
 
 .dark .form_bg {

@@ -29,7 +29,7 @@ function createWindow(project?: IProject) {
     height: height,
     width: width,
     webPreferences: {
-      //devTools: false,
+      devTools: false,
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration:true
     },

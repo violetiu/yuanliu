@@ -76,7 +76,8 @@ const panel: IPanel = {
         formCover.id = "project_cover";
         image.appendChild(formCover);
         image.ondblclick = () => {
-            ipcRendererSend("insertCover");
+            console.log("insertImage");
+            ipcRendererSend("insertImage");
 
         }
 

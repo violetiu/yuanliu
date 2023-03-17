@@ -31,7 +31,7 @@ export class FormNumber {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg";
 
@@ -125,7 +125,7 @@ export class FormText {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.style.width = "100%";
         div.className = "form_bg";
@@ -184,7 +184,7 @@ export class FormPragraph {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
 
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
 
 
         div.className = "form_bg";
@@ -229,7 +229,7 @@ export class FormButtons{
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg"
         div.style.display="flex";
@@ -314,7 +314,7 @@ export class FormIcons {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg";
 
@@ -337,7 +337,7 @@ export class FormIcons {
             icon.style.padding = "5px";
 
             icon.setAttribute("data-index", i + "");
-            icon.style.borderRadius = "5px";
+            icon.style.borderRadius = "10px";
             icon.style.cursor = "pointer";
 
             iconDiv.appendChild(icon);
@@ -397,7 +397,7 @@ export class FormIcon {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg"
 
@@ -418,7 +418,7 @@ export class FormIcon {
         icon.className = this.icon;
         icon.style.padding = "5px";
 
-        icon.style.borderRadius = "5px";
+        icon.style.borderRadius = "10px";
         icon.style.cursor = "pointer";
         iconDiv.appendChild(icon);
         this.ele = icon;
@@ -476,7 +476,7 @@ export class FormNumbers {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg"
         content.appendChild(div);
@@ -547,7 +547,7 @@ export class FormColor {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg"
         content.appendChild(div);
@@ -592,7 +592,7 @@ export class FormColor {
         div.appendChild(iconDiv);
         iconDiv.style.height = "15px";
         iconDiv.style.width = "15px";
-        iconDiv.style.borderRadius = "5px";
+        iconDiv.style.borderRadius = "10px";
         iconDiv.style.marginLeft = "5px";
         iconDiv.style.cursor = "pointer";
         iconDiv.onclick = (e) => {
@@ -644,7 +644,7 @@ export class FormSolider {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg"
         content.appendChild(div);
@@ -664,7 +664,7 @@ export class FormSolider {
         bg.style.width = "100%";
         bg.style.height = "4px";
         bg.className = "background";
-        bg.style.borderRadius = "5px";
+        bg.style.borderRadius = "10px";
         var point = document.createElement("div");
 
         point.style.position = "absolute";
@@ -748,7 +748,7 @@ export class FormSelect {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg"
 
@@ -809,7 +809,7 @@ export class FormComponent {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg";
 
@@ -912,7 +912,7 @@ export class FormCatalog {
         div.style.fontSize = "12px";
         div.style.padding = "5px 10px 5px 10px";
         div.style.alignItems = "center";
-        div.style.borderRadius = "5px";
+        div.style.borderRadius = "10px";
         div.style.height = "24px";
         div.className = "form_bg";
 

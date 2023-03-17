@@ -65,8 +65,9 @@ export function renderPagesPage(content: HTMLElement) {
                     imageDiv.style.backgroundImage = "url(" + getProject().work + "/images/" + pg.key + ".jpeg" + ")";
                     imageDiv.style.backgroundSize = "cover";
                     imageDiv.style.pointerEvents = "none";
-                    imageDiv.style.borderRadius = "5px";
-                    imageDiv.style.boxShadow="0px 0px 5px rgba(0,0,0,0.5)";
+                    imageDiv.style.borderRadius = "3px";
+                    imageDiv.style.backgroundColor="rgba(157,157,175,0.2)";
+                    // imageDiv.style.boxShadow="0px 0px 5px rgba(0,0,0,0.5)";
 
                     var pageTitle = document.createElement("div");
                     pageTitle.innerHTML = pg.name;

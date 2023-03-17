@@ -98,6 +98,7 @@ const panel: IPanel = {
     pageLayout.style.width = (content.clientWidth - 20) + "px";
     pageLayout.style.minHeight = "200px";
     pageLayout.id = "pageLayout";
+    pageLayout.className="form_bg";
     content.appendChild(pageLayout);
 
     pageLayout.ondblclick = () => {
