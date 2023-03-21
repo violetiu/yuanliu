@@ -59,9 +59,7 @@ export function renderTitlebar(content: HTMLElement) {
     titleBar.className = "titleBar";
     content.appendChild(titleBar);
 
-    if (process.platform == "darwin") {
-        titleBar.style.paddingLeft = "80px";
-    }
+
 
 
     // var logoIcon = document.createElement("i");
@@ -96,7 +94,11 @@ export function renderTitlebar(content: HTMLElement) {
     content.appendChild(toolBar);
     renderTaps(toolBar, tools);
 
-
+    if (process.platform == "darwin") {
+        titleBar.style.paddingLeft = "80px";
+    }else{
+        toolBar.style.paddingRight = "100px";
+    }
 
 
     ipcRenderer.on("_saveAs", (e, arg) => {

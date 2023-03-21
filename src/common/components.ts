@@ -4,7 +4,7 @@ Copyright (c) taoyongwen. All rights reserved.
 渲染组件
 ***************************************************************************** */
 import { clipboard } from "electron";
-import { styleTransform } from "../render/toolbar";
+import { styleTransform } from "../render/titleBar";
 
 import { ipcRendererSend } from "../preload";
 import * as dargData from "../render/DragData";
@@ -509,7 +509,7 @@ export function installComponent(component: IComponent,parentPath?:string) {
      //复原被压缩的样式
      if(component.style!=undefined&&component.style.length>0){
         var old=component.style;
-        styleTransform.forEach(trans=>{
+        styleTransform.forEach((trans:any)=>{
             var rg = RegExp("\\["+trans[1]+"\\]", "g");
             old=old.replace(rg,trans[0]+":")
            
@@ -519,7 +519,7 @@ export function installComponent(component: IComponent,parentPath?:string) {
     }
     if(component.styles!=undefined&&component.styles.length>0){
         var olds=component.styles;
-        styleTransform.forEach(trans=>{
+        styleTransform.forEach((trans:any)=>{
             var rg = RegExp("\\["+trans[1]+"\\]", "g");
             olds=olds.replace(rg,trans[0]+":")
         })

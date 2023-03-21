@@ -7,7 +7,7 @@ import { clipboard } from "electron";
 import { IComponent } from "../common/interfaceDefine";
 import { redo, undo } from "./history";
 import { copyComponents } from "./pageTitle";
-import { saveSimplePage} from "./toolbar";
+import { saveSimplePage} from "./titleBar";
 import { clipboardPaste, findCurPageComponent, getCurPage, getCurPageContent, getCurPageKey, getSelectComponents, reRenderPage, setCurPage } from "./workbench";
 export function getKeyCode():string{
     return keyCode;
