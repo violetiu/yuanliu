@@ -71,6 +71,7 @@ function renderTap(dialog:HTMLElement,content: HTMLElement, svg: string, label: 
     tap.style.alignItems = "center";
     tap.style.cursor = "pointer";
     tap.style.position = "relative";
+   
 
     tap.style.transition = "background-color 0.2s,opacity 0.2s";
     content.appendChild(tap);

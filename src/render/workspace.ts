@@ -13,7 +13,8 @@ import { renderFloatPanel, updateFloatPanel } from "../render/floatPanel";
 import { activePropertyPanel, renderPropertyPanel } from "./propertypanel";
 import { renderSidebar, updateSidebar } from "./sidebar";
 import { renderStatusBar } from "./statusBar";
-import { renderToolbar, updateToolbar } from "./toolbar";
+import { renderTitlebar, updateTitlebar } from "./titleBar";
+import { renderToolbar } from "./toolbar";
 import { findCurPageComponent, getCurPage, getCurPageContent, getLayers, getSelectComponents, loadProjectTitleNav, renderPage, setSelectComponents, updatePageViewScrollH, updatePageViewScrollV } from "./workbench";
 var project: IProject;
 export function getProject(): IProject {
@@ -75,7 +76,7 @@ export function renderWorkSpace(app: HTMLElement) {
 
         requestIdleCallback(() => {
             loadProjectTitleNav();
-            updateToolbar();
+            updateTitlebar();
             updateSidebar({type:"project",data:project});
             // activePropertyPanel("project");
             updateFloatPanel(undefined);
@@ -205,21 +206,21 @@ function layout(app: HTMLElement) {
 
     var edgePanelWidth=300;
     //标题工具栏
-    var toolBarHeight: number = 32;//60;
-    var toolBar = document.createElement("div");
-    toolBar.id = "toolBar";
-    toolBar.style.height = toolBarHeight + "px";
-    toolBar.style.position = "fixed";
-    toolBar.style.width = "100%";
-    toolBar.style.overflow = "hidden";
-    toolBar.style.zIndex="100";
-    toolBar.className="surface";
-    app.appendChild(toolBar);
+    var titleBarHeight: number = 32;//60;
+    var titleBar = document.createElement("div");
+    titleBar.id = "titleBar";
+    titleBar.style.height = titleBarHeight + "px";
+    titleBar.style.position = "fixed";
+    titleBar.style.width = "100%";
+    titleBar.style.overflow = "hidden";
+    titleBar.style.zIndex="100";
+    titleBar.className="surface";
+    app.appendChild(titleBar);
  
-    toolBar.ondragover=(e)=>{
+    titleBar.ondragover=(e)=>{
         e.preventDefault();     
     }
-    toolBar.ondrop=(e)=>{
+    titleBar.ondrop=(e)=>{
         e.preventDefault();
         var files=e.dataTransfer.files;
         if(files.length>0){
@@ -243,7 +244,7 @@ function layout(app: HTMLElement) {
     //侧边栏
     var sideBarWidth=240;
     var sideBar = document.createElement("div");
-    sideBar.style.top = toolBarHeight + "px";
+    sideBar.style.top = titleBarHeight + "px";
     sideBar.style.position = "fixed";
     sideBar.style.width = sideBarWidth+"px";
     sideBar.style.bottom = statusBarHeight + "px";
@@ -272,7 +273,7 @@ function layout(app: HTMLElement) {
     row.style.display = "flex";
     row.style.height = tabsHeight + "px";
     row.style.position = "fixed";
-    row.style.top = toolBarHeight+"px";
+    row.style.top = titleBarHeight+"px";
     row.style.left = sideBarWidth + "px";
     row.style.right =  edgePanelWidth+ "px";
     row.style.overflow = "hidden";
@@ -300,6 +301,8 @@ function layout(app: HTMLElement) {
     tools.style.display = "flex";
     tools.style.height = tabsHeight + "px";
     row.appendChild(tools);
+
+
     //多标签页面
     var pages = document.createElement("div");
     pages.className = "workbench_pages";
@@ -316,7 +319,7 @@ function layout(app: HTMLElement) {
     // var recent = document.createElement("div");
     // recent.className = "project_recent";
     // recent.id = "project_recent";
-    // recent.style.top = toolBarHeight + "px";
+    // recent.style.top = titleBarHeight + "px";
     // recent.style.position = "fixed";
     // recent.style.right = edgePanelWidth+"px";
     // recent.style.left = sideBarWidth+"px";
@@ -328,7 +331,7 @@ function layout(app: HTMLElement) {
     expand.className = "project_expand";
     expand.id = "project_expand";
 
-    expand.style.top = toolBarHeight + "px";
+    expand.style.top = titleBarHeight + "px";
     expand.style.position = "fixed";
     expand.style.right = edgePanelWidth+"px";
     expand.style.bottom = statusBarHeight + "px";
@@ -386,7 +389,7 @@ function layout(app: HTMLElement) {
     edgePanel.id = "edgePanel";
     edgePanel.style.position="fixed";
     edgePanel.style.right = "0px";
-    edgePanel.style.top =  toolBarHeight+"px";
+    edgePanel.style.top =  titleBarHeight+"px";
     edgePanel.style.bottom = statusBarHeight+"px";
     edgePanel.style.overflow="hidden";
     edgePanel.style.width = edgePanelWidth+"px";
@@ -394,7 +397,8 @@ function layout(app: HTMLElement) {
     edgePanel.className="surface";
     app.appendChild(edgePanel);
 
-    renderToolbar(toolBar);
+    renderTitlebar(titleBar);
+    renderToolbar(tools);
     renderSidebar(sideBar);
     renderFloatPanel(floatPanel);
     renderPropertyPanel(edgePanel);

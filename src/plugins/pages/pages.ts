@@ -60,6 +60,7 @@ export function renderPagesPage(content: HTMLElement) {
 
                     var imageDiv = document.createElement("div");
                     imageDiv.style.height = "100px";
+                    imageDiv.className="recent_card_image";
                     imageDiv.style.width = "200px";
                     page.appendChild(imageDiv);
                     imageDiv.style.backgroundImage = "url(" + getProject().work + "/images/" + pg.key + ".jpeg" + ")";

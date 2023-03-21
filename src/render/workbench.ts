@@ -22,7 +22,7 @@ import * as dargData from "./DragData";
 import { INavItem, renderNavTrees } from "./pageNav";
 import { renderTitleBar } from "./pageTitle";
 import { activePropertyPanel, setComponentStyle } from "./propertypanel";
-import { saveSimplePage } from "./toolbar";
+import { saveSimplePage } from "./titleBar";
 import { getConfig, getProject, getViewPosition, openExpand, renderExpand } from "./workspace";
 import { renderMarkDownPage } from "../plugins/pages/markdown";
 import { renderEditorPage } from "../plugins/pages/editor";
@@ -719,6 +719,9 @@ export function renderWorkbench(content: HTMLElement, titleJson: any, navJson: a
     var page_content = document.createElement("div");
     page_content.className = "page_content";
     page_parent_content.appendChild(page_content);
+
+    page_content.setAttribute("model","default");
+
     //渲染导航
     if (nav_display && curPage.type == "page") {
         page_content.style.display = "flex";

@@ -655,8 +655,9 @@ table {
     height: 32px;
     display: flex;
     align-items: center;
-    app-region: drag;
+  
 }
+
 
 .previewHead {
     app-region: drag;
@@ -706,10 +707,18 @@ textarea {
 }
 
 .tool_tap:hover {
-    color: #fff;
-    background-color: var(--theme-color);
-    box-shadow: 1px 1px 2px var(--light-color);
-    border-radius: 5px;
+    color: var(--theme-color);
+    /* outline:1px solid var(--theme-color); */
+    /* box-shadow: 1px 1px 2px var(--light-color); */
+    /* border-radius: 5px; */
+    position: relative;
+    animation:gump 300ms;
+}
+@keyframes gump{
+    0%{bottom:0}
+    50%{bottom:-2px}
+    100%{bottom:0}
+
 }
 
 i[data-rotate]::before {
@@ -1094,13 +1103,12 @@ option {
 }
 
 .app_title {
-    position: absolute;
-    top: 0;
-    width: 100%;
+    flex: 1;
     text-align: center;
     font-size: 10px;
     line-height: 32px;
     pointer-events: none;
+    app-region: drag;
 }
 
 iframe {
@@ -1535,6 +1543,7 @@ iframe {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
+   
 }
 
 .custom_component {
@@ -1713,6 +1722,11 @@ iframe {
 .recent_card:active {
     transform: scale(0.9);
 }
+.recent_card:hover .recent_card_image{
+    animation: gump 300ms;
+    position: relative;
+}
+
 
 .statusBar {
     height: 22px;

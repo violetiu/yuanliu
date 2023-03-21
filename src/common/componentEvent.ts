@@ -1,13 +1,12 @@
 import { updateFloatPanel } from "../render/floatPanel";
 import { pushHistory } from "../render/history";
-import { getSelectComponents } from "../render/workbench";
-import { getCurPage } from "../render/workbench";
 import { activePropertyPanel } from "../render/propertypanel";
-import { updateStatus } from "../render/statusBar";
-import { IComponent } from "./interfaceDefine";
 import { updateSidebar } from "../render/sidebar";
+import { updateStatus } from "../render/statusBar";
+import { getCurPage, getSelectComponents } from "../render/workbench";
+import { IComponent } from "./interfaceDefine";
 
-export function onAddComponents(components: IComponent[],handle?:"outline"|"page") {
+export function onAddComponents(components: IComponent[], handle?: "outline" | "page") {
 
     setTimeout(() => {
         //右侧面板
@@ -27,7 +26,7 @@ export function onAddComponents(components: IComponent[],handle?:"outline"|"page
     });
 }
 
-export function onMoveComponent(component: IComponent,handle?:"outline"|"page") {
+export function onMoveComponent(component: IComponent, handle?: "outline" | "page") {
 
     setTimeout(() => {
         //导航栏
@@ -40,7 +39,7 @@ export function onMoveComponent(component: IComponent,handle?:"outline"|"page") 
     });
 }
 
-export function onDelComponents(components: IComponent[],handle?:"outline"|"page") {
+export function onDelComponents(components: IComponent[], handle?: "outline" | "page") {
 
     setTimeout(() => {
         //右侧面板
@@ -59,7 +58,7 @@ export function onDelComponents(components: IComponent[],handle?:"outline"|"page
     });
 }
 
-export function onSelectComponents(components: IComponent[],handle?:"outline"|"page") {
+export function onSelectComponents(components: IComponent[], handle?: "outline" | "page") {
 
 
     setTimeout(() => {
@@ -67,7 +66,7 @@ export function onSelectComponents(components: IComponent[],handle?:"outline"|"p
         //右侧面板
         activePropertyPanel(components[0]);
         //导航栏
-        if(handle!="outline")
+        if (handle != "outline")
             updateSidebar({ type: "select", data: components[0] });
         //底部面板
         updateFloatPanel(components[0]);

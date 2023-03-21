@@ -1,289 +1,62 @@
-/*! *****************************************************************************
-Copyright (c) taoyongwen. All rights reserved.
-
-渲染工具栏
-***************************************************************************** */
-import { ipcRenderer } from "electron";
 import { IComponent, IPage } from "../common/interfaceDefine";
 import { ipcRendererSend } from "../preload";
-import { getTitleBar } from "./pageTitle";
-import { clearDelete, getCurPage, reRenderPage } from "./workbench";
-import { getProject, showMessageBox } from "./workspace";
+import { getCurPage } from "./workbench";
+/**
+ * 更新工具栏
+ * @param page 
+ */
+export function updateToolbar(page:IPage) {
 
-import { renderExport } from "../dialog/export";
-import { showStatusLoadding } from "./statusBar";
-export function updateToolbar() {
 
-
-    document.getElementById("app_title").innerText = getProject().name + " - " + getProject().path;
 }
+/**
+ * 渲染工具栏
+ * @param content 
+ */
 export function renderToolbar(content: HTMLElement) {
 
-    if (process.platform != "darwin") {
-        renderWin32TitleBar(() => {
-            ipcRendererSend("min");
-        }, () => {
-            ipcRendererSend("max");
-        }, () => {
-            ipcRendererSend("close");
-        });
-
-    } else {
-        //touchbar
-        ipcRenderer.on("touchBar_save", (event: any, arg: any) => {
-
-            saveSimplePage(getCurPage(true));
-        });
-        ipcRenderer.on("touchBar_fresh", (event: any, arg: any) => {
-
-            reRenderPage();
-        });
-        ipcRenderer.on("touchBar_build", (event: any, arg: any) => {
-            showStatusLoadding("save page");
-            ipcRendererSend("build", getProject().name);
-        });
-        ipcRenderer.on("touchBar_preview", (event: any, arg: any) => {
-            ipcRendererSend("startPreview", "");
-
-        });
-        ipcRenderer.on("touchBar_export", (event: any, arg: any) => {
-
-            renderExport();
-        });
-    }
-    var toolBar = document.createElement("div");
-    toolBar.className = "toolBar";
-    content.appendChild(toolBar);
-
-    var titleBar = document.createElement("div");
-    titleBar.className = "titleBar";
-    toolBar.appendChild(titleBar);
-
-    if (process.platform == "darwin") {
-        titleBar.style.paddingLeft = "80px";
-    }
-
-
-    // var logoIcon = document.createElement("i");
-    // logoIcon.className = "bi bi-palette2";
-    // logoIcon.style.fontSize = "13px";
-    // logoIcon.style.padding = "0px 5px 0px 5px";
-    // titleBar.appendChild(logoIcon);
-
-
-    var toolsBar = document.getElementById("workbench_tools");
-
-    // toolBar.appendChild(toolsBar);
-
-    renderTaps(toolsBar, tools);
-
-
-    var menuBar = document.createElement("div");
-    menuBar.className = "menuBar";
-    titleBar.appendChild(menuBar);
-    //    renderMenuBar(menuBar, menulist);
-
-    var app_title = document.createElement("div");
-    app_title.id = "app_title";
-    app_title.className = "app_title";
-    app_title.style.userSelect = "none";
-    //
-    toolBar.appendChild(app_title);
-
-
-    ipcRenderer.on("_saveAs", (e, arg) => {
-
-        showMessageBox("保存成功", "info");
-
-    });
-    ipcRenderer.on("_save", (e, arg) => {
-
-        showMessageBox("保存成功", "info");
-
-    });
-    ipcRenderer.on("_push", (e, arg) => {
-
-        showMessageBox(arg, "info");
-
-    });
-    ipcRenderer.on("_pull", (e, arg) => {
-
-        showMessageBox(arg, "info");
-
-    });
-    ipcRenderer.on("_build", (e, arg) => {
-
-        if (arg)
-            showMessageBox("构建成功", "info");
-        else
-            showMessageBox("构建失败", "info");
-
-    });
-}
-const noSaveAttrs:Array<string>=["drop","group","edge","isRoot","level","isDir","isOpen"]; 
-export const styleTransform:Array<Array<string>>=[
-    ["flex","f"],
-    ["background","b"],
-    ["border-radius","br"],
-    ["padding","d"],
-    ["height","h"],
-    ["width","w"],
-    ["margin","m"],
-    ["shadow","s"],
-    ["border","r"],
-    ["text-align","ta"],
-    ["color","c"],
-    ["position","p"],
-    ["font-weight","fw"],
-    ["white-space","ws"],
-    ["font-size","fs"],
-    ["display","di"],
-    ["cursor","cu"]
-];
-export function saveSimplePage(page: IPage) {
-
-    console.log("SavePage")
-    console.log("page.type is " + page.type);   
-    //判断是否是title
-    if (page.type == "title") {
-        if (page.children != undefined) {
-            clearDelete(page.children);
-            page.change = false;
-        }
-        getTitleBar().page = page;
-        console.log(getTitleBar());
-        //标题
-        ipcRendererSend("saveTitle", JSON.stringify(getTitleBar()));
-    } else {
-        //普通页面
-        if (page.children != undefined) {
-            clearDelete(page.children);
-            page.change = false;
-            var tab = document.getElementById("page_tab_" + page.key);
-            if (tab != undefined) {
-                tab.setAttribute("changed", "false");
-            }
-            ipcRendererSend("savePage", {
-                page: JSON.stringify(page,(key,value)=>{
-                    if(key=="style"||key=="styles"){
-                    
-                        var old=value;
-                        if(old!=undefined&&old.length>0){
-                            styleTransform.forEach(trans=>{
-                                var rg = RegExp(trans[0]+":", "g");
-                                old=old.replace(rg,"["+trans[1]+"]")
-                            })
-                        }
-                        return old;
-                    }else
-                    if(noSaveAttrs.indexOf(key)<0){
-                        return value;
-                    }
-                    
-                }), path: page.path
-            });
-
-            //页面截图 保存
-            const domToImage = require("dom-to-image");
-            var dom = document.getElementById("page_view_" + page.key);
-            var target:any=dom.getElementsByClassName("page_parent_content").item(0);
-   
-            requestIdleCallback(() => {
-
-                domToImage.toJpeg(target, { quality: 0.002})
-                    .then((jpeg: any) => {
-
-                        ipcRendererSend("savePageJpeg", { key: page.key, data: jpeg });
-
-                    })
-            });
-
-
-
-
-        }
-    }
-}
-function savePage() {
-
-    // if (getTitleBar() != undefined)
-    //     ipcRendererSend("saveTitle", JSON.stringify(getTitleBar()));
-    // if (getNavBar() != undefined)
-    //     ipcRendererSend("saveNav", JSON.stringify(getNavBar()));
-
-    // if(getProject().path.startsWith("http")||getProject().path.startsWith("ssh")){
-    //     showMessageBox("保存成功", "info");
-    // }else{
-    //     setTimeout(() => {
-
-    //        ipcRendererSend("save");
-
-    // }, 500);
-    // }
-    // work至文件中 如果是git项目不需要
-    // console.log("save");
+    renderTaps(content,tools);
 
 }
-
-
-
 const tools = [
+  
     {
         taps: [{
-            key: "tool_fresh", label: "刷新", icon: "bi bi-arrow-clockwise", onTaped: (component: IComponent) => {
-                reRenderPage();
-
-            }
-        },
-        {
-            key: "tool_save", label: "保存页面", icon: "bi bi-file-post", onTaped: (component: IComponent) => {
-                saveSimplePage(getCurPage(true));
-            }
-        }
-       
-        ]
-    },
-    {type:"sperator"},
-    {
-        taps: [  {
             key: "tool_insertfile", label: "插入文件", icon: "bi bi-file-earmark-plus", onTaped: (component: IComponent) => {
                 ipcRendererSend("insertImage");
             }
-        }, 
-        ]
-    },
-    {type:"sperator"},
-    {
-        label: "",
-        taps: [
+
+        },
+        {
+            key: "tool_line", label: "链接", icon: "bi bi-bezier2", onTaped: (component: IComponent) => {
+
+                var page = getCurPage();
+                
+                if (page&&(page.design == undefined || page.design == "default")) {
+                    page.design="line"
+                } else {
+                    page.design="default"
+                }
 
 
-          {
-                key: "tool_build", label: "编译", icon: "bi bi-hammer", onTaped: (component: IComponent) => {
-                    ipcRendererSend("build", getProject().name);
+            }, renderIcon: () => {
+                var page = getCurPage();
+                if(page){
+                    if (page.design == undefined || page.design == "default") {
+                        return "bi bi-bezier2";
+                    } else {
+                        return "bi bi-vector-pen";
+                    }
+                }else{
+                    return "bi bi-exclamation";
                 }
-            }, {
-                key: "tool_preview", label: "预览", icon: "bi bi-play-circle", onTaped: (component: IComponent) => {
-                    ipcRendererSend("startPreview", "");
-                }
+               
             }
-            
-        ]
-    },
-    {type:"sperator"},
-    {
-        label: "",
-        taps: [
-
-
-            {
-                key: "tool_export", label: "导出", icon: "bi bi-download", onTaped: (component: IComponent) => {
-                    // ipcRendererSend("export", "");
-                    renderExport();
-                }
-            }
+        }
         ]
     }
+
+    
 ]
 
 function renderTaps(content: HTMLElement, tools: Array<any>) {
@@ -335,44 +108,6 @@ function renderTaps(content: HTMLElement, tools: Array<any>) {
 
 
     });
-
-
-
-}
-
-export function renderWin32TitleBar(min: () => void, max: () => void, close: () => void) {
-    var titleBar = document.createElement("div");
-    document.getElementById("app").appendChild(titleBar);
-    titleBar.style.position = "fixed";
-    titleBar.style.top = "0";
-    titleBar.style.display = "flex";
-    titleBar.style.right = "0";
-    titleBar.style.zIndex="9999";
-    var minTap = document.createElement("div");
-    minTap.className = "titleBarTap";
-    var minTapIcon = document.createElement("i");
-    minTapIcon.className = "bi bi-dash-lg";
-    minTap.appendChild(minTapIcon);
-    minTap.onclick = min;
-    var closeTap = document.createElement("div");
-    closeTap.className = "titleBarTap";
-    var closeTapIcon = document.createElement("i");
-    closeTapIcon.className = "bi bi-x-lg";
-    closeTap.appendChild(closeTapIcon);
-    closeTap.onclick = close;
-
-    var maxTap = document.createElement("div");
-    maxTap.className = "titleBarTap";
-    var maxTapIcon = document.createElement("i");
-    maxTapIcon.className = "bi bi-square";
-    maxTap.appendChild(maxTapIcon);
-    maxTap.onclick = max;
-
-    titleBar.appendChild(minTap);
-    titleBar.appendChild(maxTap);
-    titleBar.appendChild(closeTap);
-
-
 
 
 

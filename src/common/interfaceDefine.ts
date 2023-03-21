@@ -323,6 +323,7 @@ export interface IPage {
     change?:boolean;
     scale?:number;
     mode?:"flex"|"fixed";//流式 固定
+    design?:"default"|"line"
 
 }
 /**
