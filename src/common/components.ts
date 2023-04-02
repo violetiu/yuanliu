@@ -309,25 +309,25 @@ export function renderRootComponents(content: HTMLElement, components: IComponen
                     } else {
                         var cpmt = renderComponent(content, component, undefined, index, undefined, undefined, true);
                         var root = cpmt.root;
-                      
-                        
+
+
                         var body = cpmt.body;
                         requestIdleCallback(() => {
-                            var  h=getRootComponentHeight(component.key);
-                            if(h!=undefined&&h.length>0){
-                                root.style.height=h;
+                            var h = getRootComponentHeight(component.key);
+                            if (h != undefined && h.length > 0) {
+                                root.style.height = h;
                                 root.setAttribute("data-height", "true");
                             }
-                       
-                            var pagePosition= getPagePostion(getCurPage(),viewPosition);
 
-                            if (root.offsetTop > viewHeigh -pagePosition.top+ viewPosition.top + 100) {
+                            var pagePosition = getPagePostion(getCurPage(), viewPosition);
+
+                            if (root.offsetTop > viewHeigh - pagePosition.top + viewPosition.top + 100) {
                                 //设置上次的高度
-                             
+
                                 body.innerHTML = "";
                             } else if (root.offsetTop + root.clientHeight < -(pagePosition.top + viewPosition.top + 100)) {
-                                  //设置上次的高度
-                                 
+                                //设置上次的高度
+
                                 body.innerHTML = "";
                             } else {
                                 var db = root.getAttribute("data-background");
@@ -379,7 +379,7 @@ export function renderComponents(content: HTMLElement, components: IComponent[],
         if (component.isRemoved == undefined && !component.isRemoved) {
             if (component.onRender == undefined) {
                 try {
-                    installComponent(component,parent.path);
+                    installComponent(component, parent.path);
                 } catch (error) {
                     console.log(error);
                 }
@@ -429,22 +429,22 @@ export function copyComponent(cmpt: any, parentPath?: string) {
  * 给组件绑定 
  * @param component 
  */
-export function installComponent(component: IComponent,parentPath?:string) {
+export function installComponent(component: IComponent, parentPath?: string) {
 
-        if(parentPath!=undefined){
-            component.path=parentPath+"/"+component.key;
-        }else{
-            component.path=component.key;
-        }
+    if (parentPath != undefined) {
+        component.path = parentPath + "/" + component.key;
+    } else {
+        component.path = component.key;
+    }
 
     if (component.type == "icon") {
         var icon_e = component.icon;
-        if(icon_e==undefined){
-            icon_e="diamond";
-          
+        if (icon_e == undefined) {
+            icon_e = "diamond";
+
         }
-     
-        component.onPreview=()=>{return undefined};
+
+        component.onPreview = () => { return undefined };
         component.onRender = (component, element) => {
             var pi: HTMLElement;
             if (element != undefined)
@@ -453,13 +453,13 @@ export function installComponent(component: IComponent,parentPath?:string) {
                 pi = document.createElement("div");
             // if (component.blue!=undefined&&component.blue.event!=undefined&& component.blue.event.click != undefined)
             pi.setAttribute("icon_hover", "true");
-            if(icon_e.indexOf("bi bi-")<0){
-               
+            if (icon_e.indexOf("bi bi-") < 0) {
+
                 pi.innerHTML = "<i class='bi bi-" + icon_e + "'></i>";
-            }else{
+            } else {
                 pi.innerHTML = "<i class='" + icon_e + "'></i>";
             }
-          
+
             pi.onclick = () => {
                 if (component.blue.event.click.on != undefined) {
                     component.blue.event.click.on();
@@ -490,41 +490,41 @@ export function installComponent(component: IComponent,parentPath?:string) {
             component.onPreview = template.onPreview;
             component.onRender = template.onRender;
             component.onChild = template.onChild;
-            component.icon=template.icon;
-            component.drop=template.drop;
-            component.group=template.group;
-            component.edge=template.edge;
+            component.icon = template.icon;
+            component.drop = template.drop;
+            component.group = template.group;
+            component.edge = template.edge;
             component.blue = copyBlue(template.blue);
             component.edge = template.edge;
             if (template.toogle) {
                 component.toogle = template.toogle;
             }
-           
-       
+
+
 
         } else {
             console.log("没有找到组件类型:" + component.type);
         }
     }
-     //复原被压缩的样式
-     if(component.style!=undefined&&component.style.length>0){
-        var old=component.style;
-        styleTransform.forEach((trans:any)=>{
-            var rg = RegExp("\\["+trans[1]+"\\]", "g");
-            old=old.replace(rg,trans[0]+":")
-           
+    //复原被压缩的样式
+    if (component.style != undefined && component.style.length > 0) {
+        var old = component.style;
+        styleTransform.forEach((trans: any) => {
+            var rg = RegExp("\\[" + trans[1] + "\\]", "g");
+            old = old.replace(rg, trans[0] + ":")
+
         })
-         component.style=old;
-        
+        component.style = old;
+
     }
-    if(component.styles!=undefined&&component.styles.length>0){
-        var olds=component.styles;
-        styleTransform.forEach((trans:any)=>{
-            var rg = RegExp("\\["+trans[1]+"\\]", "g");
-            olds=olds.replace(rg,trans[0]+":")
+    if (component.styles != undefined && component.styles.length > 0) {
+        var olds = component.styles;
+        styleTransform.forEach((trans: any) => {
+            var rg = RegExp("\\[" + trans[1] + "\\]", "g");
+            olds = olds.replace(rg, trans[0] + ":")
         })
-        component.styles=olds;
-        
+        component.styles = olds;
+
     }
 }
 
@@ -755,6 +755,7 @@ export function renderComponent(content: HTMLElement, component: IComponent, dro
 
     return { root: root, body: body };
 }
+
 /**
  * 组件鼠标事件
  * @param eventEle 
@@ -763,46 +764,104 @@ export function renderComponent(content: HTMLElement, component: IComponent, dro
  */
 function componentOnMouse(eventEle: HTMLElement, component: IComponent, body: HTMLElement) {
 
+
+
+
     eventEle.onmouseenter = (e: MouseEvent) => {
-        var selectCover = document.getElementById("selectCover");
-        if (selectCover != undefined) {
-            console.log("select add ", component.key);
-            if (getSelectComponents().indexOf(component.path) < 0) {
-                getSelectComponents().push(component.path);
-                document.getElementById(getPathKey(component.key)).setAttribute("selected", "true");
+        if (getCurPage().design == "default") {
+            var selectCover = document.getElementById("selectCover");
+            if (selectCover != undefined) {
+                console.log("select add ", component.key);
+                if (getSelectComponents().indexOf(component.path) < 0) {
+                    getSelectComponents().push(component.path);
+                    document.getElementById(getPathKey(component.key)).setAttribute("selected", "true");
+                }
+
+
+            }
+        }
+
+    }
+
+    var mouseTime: number = 0;
+    var mouseX: number = 0;
+    var mouseY: number = 0;
+    eventEle.onmousemove = (e: MouseEvent) => {
+        e.stopPropagation();
+        if (getCurPage().design == "default") {
+            if (component.edge != undefined && component.edge.length > 0) {
+                //悬停
+                if (getSelectComponents().indexOf(component.path) >= 0) {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                }
+            }
+        }
+
+    };
+    eventEle.onmouseover = (e: MouseEvent) => {
+        e.stopPropagation();
+
+        if (getCurPage().design == "default") {
+            if (component.edge != undefined && component.edge.length > 0) {
+                mouseTime = Date.now();
+                setTimeout(() => {
+                    if (getSelectComponents().indexOf(component.path) >= 0) {
+                        if (Date.now() - mouseTime > 2000) {
+                            //悬停
+                            console.log("悬停", component.key, component.edge);
+                            showComponentContextMenu(component.edge, mouseX, mouseY);
+                            //  activePropertyPanel(component);
+                        }
+                    }
+                }, 3000);
+
             }
 
 
         }
-    }
-    if (component.edge != undefined && component.edge.length > 0) {
-        //悬停
-        var mouseTime: number = 0;
-        var mouseX: number = 0;
-        var mouseY: number = 0;
-        eventEle.onmousemove = (e: MouseEvent) => {
-            if (getSelectComponents().indexOf(component.path) >= 0) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            }
-        };
-        eventEle.onmouseover = (e: MouseEvent) => {
-            mouseTime = Date.now();
-            setTimeout(() => {
-                if (getSelectComponents().indexOf(component.path) >= 0) {
-                    if (Date.now() - mouseTime > 2000) {
-                        //悬停
-                        console.log("悬停", component.key, component.edge);
-                        showComponentContextMenu(component.edge, mouseX, mouseY);
-                        //  activePropertyPanel(component);
+        if (getCurPage().design == "line") {
+            eventEle.style.position = "relative";
+            if (points.length == 0)
+                for (var i = 0; i < 3; i++) {
+                    for (var j = 0; j < 3; j++) {
+                        var point = document.createElement("div");
+                        point.className = "line_point";
+                        eventEle.appendChild(point);
+                        points.push(point);
+                        switch (i) {
+                            case 0: point.style.left = "0px"; break;
+                            case 1: point.style.left = "50%"; break;
+                            case 2: point.style.right = "0px"; break;
+                        }
+                        switch (j) {
+                            case 0: point.style.top = "0px"; break;
+                            case 1: point.style.top = "50%"; break;
+                            case 2: point.style.bottom = "0px"; break;
+                        }
+
                     }
                 }
-            }, 3000);
-        };
-        eventEle.onmouseout = (e: MouseEvent) => {
+        }
+
+
+        eventEle.onmouseout = (e: any) => {
+
+            e.stopPropagation();
             mouseTime = 0;
+            if (getCurPage().design == "line") {
+                if (e.toElement.className != "line_point") {
+                    for (var i in points) {
+                        points[i].remove();
+                    }
+                    points = [];
+                }
+            }
         }
     }
+
+    var points = new Array<HTMLDivElement>;
+
 }
 /**
  * 组件的 菜单和快捷键
@@ -1135,7 +1194,7 @@ function componentOnDrags(eventEle: HTMLElement, component: IComponent, body: HT
             if (previewComponent == null) {
                 previewComponent = renderStorePreview(body, dragStore, dropIndex)
             }
-       
+
             e.preventDefault();
             return;
         }
@@ -1311,11 +1370,11 @@ function componentOnDrags(eventEle: HTMLElement, component: IComponent, body: HT
                 //      console.log("parent is undefined");
                 var index = getCurPage().children.findIndex(x => x.key == component.key);
                 if (index >= 0) {
-                   
+
                     getCurPage().children.splice(index, 0, dragComponent);
                     var content = getCurPageContent();
                     content.innerHTML = "";
-                    component.path=component.key;
+                    component.path = component.key;
                     renderComponents(content, getCurPage().children, undefined);
                 }
 
@@ -1325,7 +1384,7 @@ function componentOnDrags(eventEle: HTMLElement, component: IComponent, body: HT
                     parent.children.splice(index, 0, dragComponent);
                     var content = document.getElementById(parent.key);
                     content.innerHTML = "";
-                    component.path= component.path+"/"+component.key;
+                    component.path = component.path + "/" + component.key;
                     renderComponents(content, parent.children, undefined);
                 }
             }
@@ -1378,9 +1437,9 @@ function componentOnDrags(eventEle: HTMLElement, component: IComponent, body: HT
                 previewParent = undefined;
             }
             //拖拽 商店 内容 至 界面
-            var subComponent:IComponent =JSON.parse(dragStore.data);
-            copyComponent (subComponent);
-       
+            var subComponent: IComponent = JSON.parse(dragStore.data);
+            copyComponent(subComponent);
+
             //    var component = JSON.parse(e.dataTransfer.getData("component"));
             //  console.log(component);
             if (component.children == undefined) {
@@ -1415,7 +1474,7 @@ export function renderComponentShape(component?: IComponent, root?: HTMLElement)
     }
     var shape: IShape;
     try {
-        shape= require("../plugins/shape/"+component.shape).default;
+        shape = require("../plugins/shape/" + component.shape).default;
     } catch (error) {
         console.error(error);
         return;
@@ -1450,15 +1509,15 @@ export function renderComponentShape(component?: IComponent, root?: HTMLElement)
     svg.style.height = h + "px";
     bg.appendChild(svg);
 
- 
-      
-        if (shape != undefined) {
-    
-            shape.onRender(svg, bgcolor, "var(--theme-color)");
-    
-        }
-  
-  
+
+
+    if (shape != undefined) {
+
+        shape.onRender(svg, bgcolor, "var(--theme-color)");
+
+    }
+
+
 }
 /**
  * 删除组件

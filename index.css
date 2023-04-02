@@ -716,7 +716,7 @@ textarea {
 }
 @keyframes gump{
     0%{bottom:0}
-    50%{bottom:-2px}
+    60%{bottom:-2px}
     100%{bottom:0}
 
 }
@@ -1905,4 +1905,14 @@ iframe {
 }
 .workbench_page{
 
+}
+
+.line_point{
+    border: 2px solid var(--theme-color);
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    border-radius: 18px;
+    background: var(--light-color);
+    cursor: pointer;
 }

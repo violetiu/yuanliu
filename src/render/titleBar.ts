@@ -177,7 +177,7 @@ export function saveSimplePage(page: IPage) {
                 page: JSON.stringify(page, (key, value) => {
                     if (key == "style" || key == "styles") {
 
-                        var old = value;
+                        var old:any = value;
                         if (old != undefined && old.length > 0) {
                             styleTransform.forEach(trans => {
                                 var rg = RegExp(trans[0] + ":", "g");
@@ -238,24 +238,7 @@ function savePage() {
 
 
 const tools = [
-    {
-        taps: [{
-            key: "tool_fresh", label: "刷新", icon: "bi bi-arrow-clockwise", onTaped: (component: IComponent) => {
-                reRenderPage();
 
-            }
-        },
-        {
-            key: "tool_save", label: "保存页面", icon: "bi bi-file-post", onTaped: (component: IComponent) => {
-                saveSimplePage(getCurPage(true));
-            }
-        }
-
-        ]
-    },
-
-
-    { type: "sperator" },
    
     {
         label: "",

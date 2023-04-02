@@ -227,11 +227,11 @@ export function toggleExplorer(key: string, hide: boolean) {
 
     if (hide) {
         view.style.display = "none";
-        icon.className = "bi bi-chevron-right";
+        icon.className = "bi bi-chevron-compact-right";
     } else {
 
         view.style.display = "block";
-        icon.className = "bi bi-chevron-down";
+        icon.className = "bi bi-chevron-compact-down";
     }
 }
 
@@ -245,7 +245,7 @@ export function renderExplorer(key: string, content: HTMLElement, name: string, 
     title.className = "explorer_title";
 
     var icon = document.createElement("i");
-    icon.className = "explorer_icon bi bi-chevron-right";
+    icon.className = "explorer_icon bi bi-chevron-compact-right";
     icon.style.marginLeft = "5px";
     icon.style.paddingRight="3px";
     title.appendChild(icon);

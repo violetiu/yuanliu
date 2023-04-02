@@ -273,11 +273,11 @@ function renderCatalogsRow(content: HTMLElement, catalog: ICatalog, index: numbe
     if (catalog.isDir) {
 
         if (catalog.isOpen) {
-            icon.className = "bi bi-chevron-down";
+            icon.className = "bi bi-chevron-compact-down";
             page.setAttribute("data-extend", "true");
 
         } else {
-            icon.className = "bi bi-chevron-right";
+            icon.className = "bi bi-chevron-compact-right";
             page.setAttribute("data-extend", "false");
         }
     } else {
@@ -352,13 +352,13 @@ function renderCatalogsRow(content: HTMLElement, catalog: ICatalog, index: numbe
                 catalog.isOpen = false;
 
                 page.setAttribute("data-extend", "false");
-                icon.className = "bi bi-chevron-right";
+                icon.className = "bi bi-chevron-compact-right";
 
             } else {
 
 
                 page.setAttribute("data-extend", "true");
-                icon.className = "bi bi-chevron-down";
+                icon.className = "bi bi-chevron-compact-down";
                 catalog.isOpen = true;
             }
             catalogList = [];
