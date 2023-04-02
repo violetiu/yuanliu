@@ -36,7 +36,7 @@
 
 ## 了解个更多
 
-访问[violetime.com](https:www.//violetime.com/)
+访问[violetime.com](https//:www.violetime.com/)
 
 
 ## License
