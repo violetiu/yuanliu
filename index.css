@@ -1489,6 +1489,7 @@ iframe {
 
 .hub_icon:hover {
     left: 0px;
+        background: var(--theme-color);
 }
 
 .hub_icon {
@@ -1498,9 +1499,11 @@ iframe {
     cursor: pointer;
     font-size: 12px;
     padding: 5px;
-    background: var(--theme-color);
+
     color: #fff;
     border-radius: 2px;
+    backdrop-filter: blur(5px);
+    z-index: 999;
 }
 
 .hub_title {

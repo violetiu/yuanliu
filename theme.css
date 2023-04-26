@@ -518,20 +518,23 @@ button {
 }
 
 .hub_setting {
-    background-color: rgba(35, 40, 45, 0.9);
-    border: 1px solid #999;
+    background-color: rgba(0,0,0,0.1);
+    backdrop-filter: blur(50px);
+    outline: 1px solid rgba(255,255,255,0.2);
     color: #fff;
 }
 
 .hub_catalog {
-    background-color: rgba(35, 40, 45, 0.9);
-    border: 1px solid #999;
+    background-color: rgba(0,0,0,0.1);
+    backdrop-filter: blur(50px);
+    outline: 1px solid rgba(255,255,255,0.2);
     color: #fff;
 }
 
 .hub_blue {
-    background-color: rgba(35, 40, 45, 0.9);
-    border: 1px solid #999;
+    background-color: rgba(0,0,0,0.1);
+    backdrop-filter: blur(50px);
+    outline: 1px solid rgba(255,255,255,0.2);
     color: #fff;
 }
 

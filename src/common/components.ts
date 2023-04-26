@@ -1091,8 +1091,9 @@ function componentOnMove(eventEle: HTMLElement, component: IComponent, body: HTM
 
 
         var move: boolean = true;
-
+  
         document.onmousemove = (em: MouseEvent) => {
+            em.stopPropagation();
             if (move) {
                 console.log(blueTop, em.clientY, startY);
                 var top = blueTop + em.clientY - startY;

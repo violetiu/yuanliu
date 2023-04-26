@@ -3,7 +3,7 @@ import { loadChart } from "../../render/chart";
 import { IBlueProperty, IComponent } from "../../common/interfaceDefine"
 
 const component: IComponent = {
-    isTemplate: true, key: "chart_bar", label: "bar", icon: "bi bi-bar-chart",
+    isTemplate: true, key: "chart_bar_line", label: "barLine", icon: "bi bi-bar-chart-line",
     type: "chart_bar", group: "chart", panel: "echarts",
     option: "option =" + JSON.stringify(
         {
@@ -27,16 +27,28 @@ const component: IComponent = {
             },
             yAxis: [{
                 type: 'value'
+            },
+            {
+                type: 'value'
             }],
             series: [
                 {
-                    name: "数据项",
+                    name: "量",
                     data: [10, 20, 30],
                     type: 'bar',
                     barMaxWidth: 20,
                     itemStyle: {
                         barBorderRadius: [20, 20, 20, 20]
-                    }
+                    },
+                    yAxisIndex:0
+
+                },
+                {
+                    name: "价",
+                    data: [0.3, 0.4, 0.2],
+                    type: 'line',
+                    yAxisIndex:1
+                   
 
                 }
             ]
